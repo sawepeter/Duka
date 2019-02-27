@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/save"
+        android:icon="@drawable/ic_done_light_green_a100_24dp"
+        android:title="Save"
+        app:showAsAction="always" />
+
+
+</menu>

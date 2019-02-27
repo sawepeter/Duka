@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.NewSuppliers">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_margin="16dp"
+            android:background="#ffffff"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/edt_supplier_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:paddingBottom="16dp"
+                android:inputType="textCapWords"
+                android:paddingTop="16dp"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimaryDark"
+                android:hint="Supplier Name" />
+
+            <RelativeLayout
+                android:id="@+id/quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edt_supplier_name"
+                android:paddingBottom="16dp">
+
+                <EditText
+                    android:id="@+id/adt_supplier_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="text"
+                    android:hint="Product"
+                    android:paddingTop="16dp"
+                    android:textColorHint="@color/colorPrimaryDark"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/quantity"
+                android:paddingBottom="16dp">
+
+                <EditText
+                    android:id="@+id/edt_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:hint="Location"
+                    android:inputType="text" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/price"
+                android:paddingBottom="16dp">
+
+                <EditText
+                    android:id="@+id/edt_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="textEmailAddress"
+                    android:hint="Email"
+                    android:paddingTop="16dp"
+                    android:textColorHint="@color/colorPrimaryDark"/>
+
+                <ImageButton
+                    android:id="@+id/btn_email"
+                    android:layout_width="50dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_mail_outline_lime_100_24dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:text="Email" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_total_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/layout_quantity"
+                android:paddingBottom="16dp">
+
+                <EditText
+                    android:id="@+id/edt_phone_supplier"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:inputType="phone"
+                    android:hint="Phone"
+                    android:paddingTop="16dp"
+                    android:textColorHint="@color/colorPrimaryDark"/>
+
+                <ImageButton
+                    android:layout_width="44dp"
+                    android:layout_height="50dp"
+                    android:background="@color/colorPrimary"
+                    android:layout_margin="5dp"
+                    android:id="@+id/img_btn_sms"
+                    android:contentDescription="Sell button"
+                    android:src="@drawable/ic_message_lime_100_24dp" />
+
+                <ImageButton
+                    android:id="@+id/img_btn_call"
+                    android:layout_width="45dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:src="@drawable/ic_call_lime_100_24dp" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </TableLayout>
+
+</android.support.constraint.ConstraintLayout>

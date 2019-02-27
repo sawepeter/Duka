@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/dashboard"
+            android:title="DashBoard" />
+        <item
+            android:id="@+id/nav_addgood"
+            android:icon="@drawable/addgood"
+            android:title="Purchase Goods" />
+        <item
+            android:id="@+id/nav_sales"
+            android:icon="@drawable/sellgoods"
+            android:title="Sell Goods" />
+        <item
+            android:id="@+id/nav_reports"
+            android:icon="@drawable/gr"
+            android:title="Reports" />
+    </group>
+
+    <item android:title="Partners">
+        <menu>
+            <item
+                android:id="@+id/nav_customers"
+                android:icon="@drawable/customers"
+                android:title="Customers" />
+            <item
+                android:id="@+id/nav_suppliers"
+                android:icon="@drawable/suppliers"
+                android:title="Suppliers" />
+        </menu>
+    </item>
+
+</menu>

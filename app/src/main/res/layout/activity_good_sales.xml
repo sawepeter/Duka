@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".Activities.GoodSales"
+    android:background="@color/colorPrimaryDark"
+    android:fillViewport="true">
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layout_customer_list"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:backgroundTint="@android:color/white"
+        android:layout_margin="8dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sales_border">
+
+        <LinearLayout
+            android:id="@+id/layout_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_margin="5dp"
+                android:textSize="20sp"
+                android:text="Date" />
+
+            <TextView
+                android:id="@+id/txt_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:text="February 13th 2019" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_customer"
+            android:layout_below="@+id/layout_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_margin="5dp"
+                android:textSize="20sp"
+                android:text="Customer" />
+
+            <Spinner
+                android:id="@+id/spinner_customers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:text="Ksh 0.0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/layout_customer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:text="Add New Customer" />
+
+            <Button
+                android:id="@+id/new_customer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:text="NEw" />
+
+
+
+        </LinearLayout>
+</RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_product_billing"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:backgroundTint="@android:color/white"
+        android:layout_below="@+id/layout_customer_list"
+        android:layout_margin="8dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sales_border">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_margin="5dp"
+                android:textSize="20sp"
+                android:text="Transaction Id:" />
+
+            <TextView
+                android:id="@+id/txt_transaction_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:text="KSh 0.0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_margin="5dp"
+                android:textSize="20sp"
+                android:text="Choose Product:" />
+
+            <Spinner
+                android:id="@+id/spinner_products"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:text="Ksh 0.0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize="20sp"
+                android:text="Quantity Bought :" />
+
+            <EditText
+                android:background="@drawable/sales_border"
+                android:textColor="@color/colorPrimaryDark"
+                android:id="@+id/edt_quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:hint="Ksh 0.0" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_margin="5dp"
+                android:textSize="20sp"
+                android:text="Selling Price :" />
+
+            <TextView
+                android:id="@+id/txt_selling_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:textAlignment="center"
+                android:text="Ksh 0.0" />
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:text="Sub Total:" />
+
+        <TextView
+            android:id="@+id/subtotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:text="Ksh 0.0" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:text="Discount Received:" />
+
+        <EditText
+            android:background="@drawable/sales_border"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/discount_received"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textSize="20sp"
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:hint="0.0" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:text="Grand Total:" />
+
+        <TextView
+            android:id="@+id/transaction_total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:text="KSh 0.0" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:text="Amount Received:" />
+
+        <EditText
+            android:background="@drawable/sales_border"
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/cash_received"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textSize="20sp"
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:hint="KSh 0.0" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:text="Balance:" />
+
+        <TextView
+            android:id="@+id/cash_balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:text="KSh 0.0" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:text="Payment Method:" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/radiocash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Cash"/>
+
+            <RadioButton
+                android:id="@+id/radiompesa"
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_height="wrap_content"
+                android:text="Mpesa"/>
+        </RadioGroup>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/make_sale"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize="20sp"
+                android:text="Make Sale" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</RelativeLayout>
+</ScrollView>

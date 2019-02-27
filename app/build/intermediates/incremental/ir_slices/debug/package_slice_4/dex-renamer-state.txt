@@ -1,0 +1,4 @@
+#Wed Feb 27 16:51:13 EAT 2019
+base.0=/home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/build/intermediates/transforms/dexMerger/debug/4
+path.0=classes.dex
+renamed.0=classes.dex

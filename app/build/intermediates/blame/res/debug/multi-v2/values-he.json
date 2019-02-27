@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-he/values-he.xml",
+            "map": [
+                {
+                    "source": "/home/devsawe/.gradle/caches/transforms-1/files-1.1/zxing-android-embedded-3.4.0.aar/72fa31b0062c9346f74942f07233baeb/res/values-he/values-he.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,111,161,296",
+                        "endColumns": "55,49,134,89",
+                        "endOffsets": "106,156,291,381"
+                    }
+                }
+            ]
+        }
+    ]
+}

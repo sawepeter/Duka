@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary"
+    android:fillViewport="true"
+    tools:context=".Activities.NewGoods">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="25dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/layout_image"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/goods_image"
+                android:layout_width="184dp"
+                android:layout_height="150dp"
+                android:src="@drawable/customer"
+                app:civ_border_color="#EEEEEE"
+                android:layout_marginStart="100dp"
+                android:clickable="true"
+                app:civ_border_width="4dp"
+                app:civ_shadow="true"
+                app:civ_shadow_color="#8BC34A"
+                app:civ_shadow_radius="10"
+                android:focusable="true" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_margin="16dp"
+            android:background="#ffffff"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/edtgoodname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:paddingBottom="16dp"
+                android:inputType="textCapWords"
+                android:textAlignment="center"
+                android:paddingTop="16dp"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimaryDark"
+               android:hint="Good Name" />
+
+            <RelativeLayout
+                android:id="@+id/quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtgoodname"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:id="@+id/edtbarcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textAlignment="center"
+                    android:inputType="number"
+                    android:hint="Barcode"
+                    android:paddingTop="16dp"
+                    android:textColorHint="@color/colorPrimaryDark"/>
+
+                <Button
+                    android:id="@+id/quantity_units"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:shadowColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"
+                    android:text="Scan" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/stock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/quantity"
+                android:paddingBottom="16dp">
+
+                <EditText
+                    android:id="@+id/edt_stock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:hint="Available Stock"
+                    android:inputType="number" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/minimum_stock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/stock"
+                android:paddingBottom="16dp">
+
+                <EditText
+                    android:id="@+id/edt_minimum_stock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:hint="Minimum stock Limit"
+                    android:inputType="number" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/purchase_cost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/minimum_stock"
+                android:paddingBottom="16dp">
+
+                <EditText
+                    android:id="@+id/edt_purchase_cost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:hint="Purchase Cost"
+                    android:inputType="number" />
+
+            </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/sale_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            android:layout_below="@id/purchase_cost">
+
+            <EditText
+                android:id="@+id/edt_sale_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:hint="Sale Price"
+                android:inputType="number" />
+
+        </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </TableLayout>
+</ScrollView>

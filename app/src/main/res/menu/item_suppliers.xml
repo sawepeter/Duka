@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/add_supplier"
+        android:icon="@drawable/ic_done_light_green_a100_24dp"
+        android:title="Save"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/home_btn"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="home"
+        app:showAsAction="always" />
+
+
+
+</menu>
