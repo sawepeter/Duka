@@ -1,52 +1,242 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:layout_height="match_parent">
 
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Name" />
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="xyz"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+            <android.support.v7.widget.CardView
+                android:layout_width="140dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="4dp"
+                app:cardCornerRadius="4dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="16dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Address" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/txt_sales"
+                        android:layout_width="wrap_content"
+                        android:text="Total Sales"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/Sales_Amount"
+                        android:layout_width="wrap_content"
+                        android:textAlignment="center"
+                        android:text="KSH : 85,000"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/textViewAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="xyz"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+                </LinearLayout>
 
 
-    </LinearLayout>
 
-    <Button
-        android:id="@+id/buttonScan"
+
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                app:cardCornerRadius="4dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txt_profit"
+                        android:layout_width="175dp"
+                        android:text="Profit Revenue"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/Profit_Amount"
+                        android:layout_width="175dp"
+                        android:layout_marginTop="15dp"
+                        android:text="KSH : 50000"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+
+
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Scan QR Code" />
+        android:layout_height="300dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        app:cardCornerRadius="4dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="16dp">
 
-</RelativeLayout>
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/linechart"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    </android.support.v7.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="140dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginTop="4dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardUseCompatPadding="true"
+                    app:contentPadding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/txt_biggest_buyer"
+                            android:layout_width="wrap_content"
+                            android:textAlignment="center"
+                            android:text="Top Buyer"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_marginTop="15dp"
+                            android:id="@+id/biggest_buyer_name"
+                            android:textAlignment="center"
+                            android:layout_width="wrap_content"
+                            android:text="Sawe peter"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="22sp"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="4dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardUseCompatPadding="true"
+                    app:contentPadding="16dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txt_expenses"
+                            android:layout_width="175dp"
+                            android:text="Top Sold Good"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/expenses_amount"
+                            android:layout_width="175dp"
+                            android:layout_marginTop="15dp"
+                            android:text="KSH : 50000"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="20sp"
+                            android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+
+
+
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        app:cardCornerRadius="4dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="16dp">
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </android.support.v7.widget.CardView>
+    </LinearLayout>
+    </ScrollView>
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+</LinearLayout>

@@ -67,7 +67,7 @@ public class SellGoods extends Fragment {
                 Toast.makeText(context, "records present", Toast.LENGTH_SHORT).show();
             }
 
-            String from [] = {Database.SALE_TRANSACTION_ID,Database.SALES_CUSTOMER,Database.SALES_DATE,Database.SALE_PRODUCT,Database.SALE_QUANTITY,Database.SALE_AMOUNT_RECEIVED};
+            String from [] = {Database.SALE_TRANSACTION_ID,Database.SALES_CUSTOMER,Database.SALES_DATE,Database.SALE_PRODUCT,Database.SALE_QUANTITY,Database.SALE_GRAND_TOTAL};
             int to [] = {R.id.sale_transaction_id,R.id.sale_customer,R.id.sale_date,R.id.sale_product,R.id.quantity_bought,R.id.paid_amount};
 
             suppliers_display = new SimpleCursorAdapter(getActivity(),R.layout.sales_row_item,goods,from,to);

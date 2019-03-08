@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 Database.GOOD_ID + " INTEGER," +
                 Database.GOOD_IMAGE  + " TEXT," +
                 Database.GOOD_NAME  + " TEXT," +
-                Database.GOOD_BARCODE  + " TEXT," +
+                Database.GOOD_BARCODE  + " TEXT unique," +
                 Database.GOOD_STOCK  + " DOUBLE," +
                 Database.GOOD_MINIMUM_STOCK  + " DOUBLE," +
                 Database.GOOD_PURCHASE_COST  + " DOUBLE," +
@@ -65,7 +65,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 Database.ROW_ID + " integer  primary key autoincrement," +
                 Database.CUSTOMER_ID + " INTEGER," +
                 Database.CUSTOMER_NAME  + " TEXT," +
-                Database.CUSTOMER_PHONE  + " VARCHAR," +
+                Database.CUSTOMER_PHONE  + " VARCHAR unique," +
                 Database.CUSTOMER_LOCATION  + " TEXT," +
                 Database.CUSTOMER_CREDIT  + " DOUBLE)";
 
@@ -85,7 +85,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 Database.SUPPLIER_PRODUCT  + " TEXT," +
                 Database.SUPPLIER_LOCATION  + " TEXT," +
                 Database.SUPPLIER_EMAIL  + " TEXT," +
-                Database.SUPPLIER_PHONE + " VARCHAR)";
+                Database.SUPPLIER_PHONE + " VARCHAR unique)";
 
         String DefaultSupplier = "INSERT INTO " + Database.SUPPLIER_TABLE_NAME + " ("
                 + Database.ROW_ID + ", "
@@ -102,13 +102,13 @@ public class DBHelper extends SQLiteOpenHelper {
                 Database.SALE_ID + " INTEGER," +
                 Database.SALES_DATE  + " DATE," +
                 Database.SALES_CUSTOMER  + " TEXT," +
-                Database.SALE_TRANSACTION_ID  + " VARCHAR," +
+                Database.SALE_TRANSACTION_ID  + " VARCHAR unique," +
                 Database.SALE_PRODUCT  + " TEXT," +
                 Database.SALE_QUANTITY  + " VARCHAR," +
                 Database.SELLING_PRICE  + " VARCHAR," +
                 Database.SALE_SUB_TOTAL  + " VARCHAR," +
                 Database.SALE_DISCOUNT  + " VARCHAR," +
-                Database.SALE_GRAND_TOTAL  + " VARCHAR," +
+                Database.SALE_GRAND_TOTAL  + " DOUBLE," +
                 Database.SALE_AMOUNT_RECEIVED  + " VARCHAR," +
                 Database.SALE_BALANCE + " VARCHAR)";
 
@@ -125,7 +125,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 + Database.SALE_DISCOUNT + ", "
                 + Database.SALE_GRAND_TOTAL + ", "
                 + Database.SALE_AMOUNT_RECEIVED + ", "
-                + Database.SALE_BALANCE + ")  Values ('1', '1214', '18-02-2019', 'Devsawe','VFR7686','Kimbo','10Kgs','Ksh: 500','Ksh: 5000','Ksh: 100','Ksh : 4900', 'Ksh: 4900','Ksh: 0.00')";
+                + Database.SALE_BALANCE + ")  Values ('1', '1214', '18-02-2019', 'Devsawe','VFR7686','Kimbo','10Kgs','Ksh: 500','Ksh: 5000','Ksh: 100','Ksh : 5', 'Ksh: 4900','Ksh: 0.00')";
 
         try {
             database.execSQL(user_table_sql);
@@ -137,7 +137,7 @@ public class DBHelper extends SQLiteOpenHelper {
             database.execSQL(DefaultUser);
             database.execSQL(DefaultSupplier);
             database.execSQL(DefaultCustomer);
-            database.execSQL(DefaultSales);
+            //database.execSQL(DefaultSales);
 
         }catch (Exception e){
             Log.d("Duka.db", "Error in DBHelper.onCreate() : " + e.getMessage());
@@ -182,6 +182,24 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    public void UpdateGoodStock(String goodavailablestock,String goodname) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values =new ContentValues();
+        values.put(Database.GOOD_STOCK,goodavailablestock);
+
+
+        long row =db.update(Database.GOODS_TABLE_NAME,values,Database.GOOD_NAME+ "=?",new String[]{goodname});
+
+        if (row>0){
+
+
+        }
+
+
+
+    }
+
+
     public long AddSupplier(String suppliername,String supplierproduct, String supplierlocation, String supplieremail, String supplierphone){
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -207,40 +225,81 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.insert(Database.CUSTOMER_TABLE_NAME,null,contentValues);
     }
 
-
-
     //this function gets the customer names and displays them to spinner widget
     public List<String> getCustomer(){
         List<String> customer_names = new ArrayList<String>();
 
-        // Select All Query
-      //  String selectQuery = "SELECT CUSTOMER_NAME FROM " + Database.CUSTOMER_TABLE_NAME;
-
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT customername FROM " + Database.CUSTOMER_TABLE_NAME, null);
-
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
                 customer_names.add(cursor.getString(0));
             } while (cursor.moveToNext());
         }
-
-        // closing connection
-        cursor.close();
-        db.close();
-
         // returning customer names
         return customer_names;
     }
 
+    public List<String> getsaleCustomer(){
+        List<String> name_of_salecustomer = new ArrayList<String>();
+
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT salecustomer FROM " +Database.SALES_TABLE_NAME,null);
+
+        if (cursor.moveToFirst()){
+            do {
+                name_of_salecustomer.add(cursor.getString(0));
+            }while (cursor.moveToNext());
+        }
+
+        return name_of_salecustomer;
+    }
+
+    public ArrayList<String> queryXData(){
+        ArrayList<String> xNewData = new ArrayList<String>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + Database.SALES_CUSTOMER + " FROM " + Database.SALES_TABLE_NAME;
+        Cursor cursor = db.rawQuery(query, null);
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            xNewData.add(cursor.getString(cursor.getColumnIndex("salecustomer")));
+        }
+        cursor.close();
+        return xNewData;
+    }
+    //y axis code
+
+    public ArrayList<Float> queryYData(){
+        ArrayList<Float> yNewData = new ArrayList<Float>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + Database.SALE_GRAND_TOTAL + " FROM " + Database.SALES_TABLE_NAME;
+        Cursor cursor = db.rawQuery(query, null);
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            yNewData.add(cursor.getFloat(cursor.getColumnIndex("salegrandtotal")));
+        }
+        cursor.close();
+        return yNewData;
+    }
+
+    public List<String> getSaleAmount(){
+        List<String> sale_customer_amount = new ArrayList<String>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT salegrandtotal FROM "+Database.SALES_TABLE_NAME,null);
+
+        if (cursor.moveToFirst()){
+            do {
+                sale_customer_amount.add(cursor.getString(0));
+            }while (cursor.moveToNext());
+        }
+
+        return sale_customer_amount;
+    }
 
     //this function gets the customer names and displays them to spinner widget
     public List<String> getProducts(){
         List<String> product_names = new ArrayList<String>();
-
-
-
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT goodname FROM " + Database.GOODS_TABLE_NAME, null);
 
@@ -250,19 +309,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 product_names.add(cursor.getString(0));
             } while (cursor.moveToNext());
         }
-
-        // closing connection
-        cursor.close();
-        db.close();
-
         // returning customer names
         return product_names;
     }
     public String ProdPrice(String product_name){
         SQLiteDatabase db = this.getReadableDatabase();
         String sellprice_Query = "SELECT goodsaleprice FROM table_goods WHERE goodname = '" + product_name + "'";
-        //String updateSql = "UPDATE table_goods SET goodstock = Stock_update WHERE goodname = '"+product_name+"'";
-        //db.execSQL(updateSql);
 
         String Price=null;
         Cursor cursor = db.rawQuery(sellprice_Query, null);
@@ -274,6 +326,61 @@ public class DBHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
       return Price;
+    }
+
+    public String HighestBuyer(){
+        String top_customer=null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String alltimebuyer = "SELECT salecustomer, max(salegrandtotal) as maxgrand FROM (SELECT salecustomer, sum(salegrandtotal) as salegrandtotal FROM table_sales group by salecustomer)";
+
+        Cursor cursor = db.rawQuery(alltimebuyer, null);
+        if (cursor.moveToFirst())
+        {
+            do {
+                int columncustomer = cursor.getColumnIndex("salecustomer");
+                top_customer = cursor.getString(columncustomer);
+            }while (cursor.moveToNext());
+        }
+
+        // closing connection
+        cursor.close();
+        db.close();
+       return top_customer;
+    }
+
+    //code segment for the most sold good
+    public String HighestSoldProduct(){
+        String top_product=null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String alltimeproduct = "SELECT saleproduct, max(salegrandtotal) as maxgrand FROM (SELECT saleproduct, sum(salegrandtotal) as salegrandtotal FROM table_sales group by saleproduct)";
+
+        Cursor cursor = db.rawQuery(alltimeproduct, null);
+        if (cursor.moveToFirst())
+        {
+            do {
+                int columnproduct = cursor.getColumnIndex("saleproduct");
+                top_product = cursor.getString(columnproduct);
+            }while (cursor.moveToNext());
+        }
+
+        // closing connection
+        cursor.close();
+        db.close();
+        return top_product;
+    }
+    //code segment for retrieving the sum of all transactions
+    public String TotalSales(){
+        String sales_total = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sum_of_sales = "SELECT SUM(salegrandtotal) as grandtotal FROM table_sales";
+        Cursor cursor = db.rawQuery(sum_of_sales,null);
+        if (cursor.moveToFirst()){
+            do {
+                int columngrandtotal = cursor.getColumnIndex("grandtotal");
+                    sales_total = cursor.getString(columngrandtotal);
+            }   while (cursor.moveToNext());
+        }
+        return sales_total;
     }
 
     public String GetQuantity(String quantity_change){

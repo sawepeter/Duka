@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.devsawe.duka.Activities.Display;
 import com.example.devsawe.duka.Activities.FingerPrint;
 import com.example.devsawe.duka.R;
 
@@ -26,17 +27,24 @@ public class Reports extends Fragment {
         View reportsview = inflater.inflate(R.layout.fragment_reports, container, false);
         context = reportsview.getContext();
 
+        Button btn_list = reportsview.findViewById(R.id.btn_list);
+        btn_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,Display.class);
+                startActivity(intent);
+            }
+        });
+
         Button btn_reports = reportsview.findViewById(R.id.btn_reports);
         btn_reports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(context,FingerPrint.class);
-                //startActivity(intent);
-                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                cameraIntent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+              Intent intent = new Intent(context,FingerPrint.class);
+                startActivity(intent);
             }
         });
+
         return reportsview;
     }
 

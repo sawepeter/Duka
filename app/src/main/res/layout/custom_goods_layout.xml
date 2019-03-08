@@ -6,15 +6,15 @@
     android:layout_marginTop="12dp"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<android.support.v7.widget.CardView
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    card_view:cardCornerRadius="5dp"
-    card_view:cardElevation="8dp"
-    card_view:contentPadding="@dimen/card_view_padding">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardElevation="8dp"
+        card_view:contentPadding="@dimen/card_view_padding">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,12 +31,6 @@
                 android:layout_width="@dimen/padding_small"
                 android:layout_height="0dp" />
 
-            <!--<ImageView
-                android:id="@+id/db_image"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:contentDescription="@null"
-                app:srcCompat="@drawable/re" />-->
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/db_image"
                 android:layout_width="40dp"

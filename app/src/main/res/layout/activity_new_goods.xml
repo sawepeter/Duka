@@ -58,7 +58,7 @@
                 android:layout_below="@+id/edtgoodname"
                 android:paddingBottom="16dp">
 
-                <TextView
+                <EditText
                     android:id="@+id/edtbarcode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

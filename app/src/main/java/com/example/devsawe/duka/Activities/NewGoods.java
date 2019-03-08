@@ -45,7 +45,7 @@ import java.util.Locale;
 public class NewGoods extends AppCompatActivity implements View.OnClickListener {
     EditText edtgoodname, edt_stock, edt_minimum_stock, edt_purchase_cost, edt_sale_price;
     String s_goodname, s_edtbarcode, s_stock, s_minimum_stock, s_purchase_cost, s_sale_price;
-    public static TextView edtbarcode;
+    public static EditText edtbarcode;
     File file;
     DBHelper dbhelper;
     SQLiteDatabase db;
@@ -195,8 +195,8 @@ public class NewGoods extends AppCompatActivity implements View.OnClickListener 
                     try {
                         InputStream inputStream = getContentResolver().openInputStream(uri);
 
-                        Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                       circularImageView.setImageBitmap(bitmap);
+                        imageBitmap = BitmapFactory.decodeStream(inputStream);
+                       circularImageView.setImageBitmap(imageBitmap);
                     }catch (FileNotFoundException e){
                         e.printStackTrace();
                     }
@@ -285,6 +285,7 @@ public class NewGoods extends AppCompatActivity implements View.OnClickListener 
                         finish();
                     }else {
                         Toast.makeText(getApplicationContext(), "Good failed to save !!!!", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                 }catch (Exception ex){
                     success=false;

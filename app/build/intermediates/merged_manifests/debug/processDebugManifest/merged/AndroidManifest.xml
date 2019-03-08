@@ -62,6 +62,7 @@
         <activity android:name="com.example.devsawe.duka.Activities.GoodSales" />
         <activity android:name="com.example.devsawe.duka.Activities.FingerPrint" />
         <activity android:name="com.example.devsawe.duka.Activities.BarcodeScanner" />
+        <activity android:name="com.example.devsawe.duka.Activities.Display" />
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:clearTaskOnLaunch="true"

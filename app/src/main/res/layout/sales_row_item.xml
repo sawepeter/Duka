@@ -167,16 +167,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_normal"
-                android:layout_weight="0.5"
+                android:layout_weight="1"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Amount Paid :" />
+                android:text="Transaction Cost :" />
 
             <TextView
                 android:id="@+id/paid_amount"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
                 android:gravity="end"
                 android:layout_marginBottom="6dp"
                 tools:text="End Date" />

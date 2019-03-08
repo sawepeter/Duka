@@ -18,6 +18,10 @@ android {
     }
 }
 
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
@@ -35,6 +39,7 @@ dependencies {
     implementation 'com.hanks:passcodeview:0.1.2'
     implementation 'me.spark:submitbutton:1.0.1'
     implementation 'com.journeyapps:zxing-android-embedded:3.4.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v2.1.6'
 
 
 }

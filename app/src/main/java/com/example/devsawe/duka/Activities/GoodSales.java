@@ -1,6 +1,5 @@
 package com.example.devsawe.duka.Activities;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -19,7 +18,6 @@ import android.widget.Toast;
 
 import com.example.devsawe.duka.R;
 import com.example.devsawe.duka.database.DBHelper;
-import com.example.devsawe.duka.database.Database;
 
 import java.util.List;
 import java.util.Random;
@@ -27,6 +25,7 @@ import java.util.Random;
 public class GoodSales extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Button make_sale,new_customer;
+    Double inputQuantity,current_stock;
     Spinner spinner_customers,spinner_products;
     TextView txt_transaction_id,txt_selling_price,subtotal,cash_balance,transaction_total,txt_date;
     DBHelper dbhelper;
@@ -37,7 +36,8 @@ public class GoodSales extends AppCompatActivity implements AdapterView.OnItemSe
     String s_spinner_customers,s_spinner_products,s_txt_transaction_id,s_cash_received,
             s_edt_quantity,s_discount_received,s_txt_selling_price,s_subtotal,s_cash_balance,s_transaction_total,s_txt_date;
     String available_stock;
-    public static String Stock_update;
+    public static String Stock_update,product_name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,7 +136,7 @@ public class GoodSales extends AppCompatActivity implements AdapterView.OnItemSe
         spinner_products.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String product_name = parent.getItemAtPosition(position).toString();
+                product_name = parent.getItemAtPosition(position).toString();
                 String quantity_change = parent.getItemAtPosition(position).toString();
 
                 dbhelper = new DBHelper(getApplicationContext());
@@ -157,6 +157,7 @@ public class GoodSales extends AppCompatActivity implements AdapterView.OnItemSe
         loadSpinnerData();
         TransactionID();
         loadProducts();
+
 
 
 
@@ -181,21 +182,19 @@ public class GoodSales extends AppCompatActivity implements AdapterView.OnItemSe
                   s_cash_balance = cash_balance.getText().toString();
                   s_transaction_total = transaction_total.getText().toString();
                   s_txt_date = txt_date.getText().toString();
+                  deductions();
+
 
                   dbhelper.AddSale(s_txt_date, s_spinner_customers, s_txt_transaction_id,
                           s_spinner_products, s_edt_quantity, s_txt_selling_price, s_subtotal,
                           s_discount_received, s_transaction_total, s_cash_received,s_cash_balance);
-
-                  if (success){
-                      Toast.makeText(getApplicationContext(), "Sale captured successfully saved!!!!", Toast.LENGTH_SHORT).show();
-                      Update();
-                      finish();
+                  if (inputQuantity>current_stock && current_stock<=0 && inputQuantity == 0) {
+                      Toast.makeText(getApplicationContext(), "Sorry quantity demanded is invalid !!!", Toast.LENGTH_SHORT).show();
                   }else {
-                      Toast.makeText(getApplicationContext(), "Sale  not recorded in database", Toast.LENGTH_SHORT).show();
-
+                      Toast.makeText(getApplicationContext(), "Sale captured successfully saved!!!!", Toast.LENGTH_SHORT).show();
+                      UpdateStock();
+                      finish();
                   }
-
-
 
               }catch (Exception ex){
                   success=false;
@@ -204,20 +203,27 @@ public class GoodSales extends AppCompatActivity implements AdapterView.OnItemSe
         });
 
     }
+    public void UpdateStock(){
+        dbhelper = new DBHelper(getApplicationContext());
+        db= dbhelper.getReadableDatabase();
 
-    public void Update(){
-
-        Double retirevedStock = Double.valueOf(available_stock);
-        Double currentstock = Double.valueOf(s_edt_quantity);
-
-        Double updatedStock = retirevedStock - currentstock;
-        Stock_update = String.valueOf(updatedStock);
-
-        ContentValues newvalues  = new ContentValues();
-        newvalues.put("goodstock", Stock_update);
-        db.update(Database.GOODS_TABLE_NAME,newvalues,"goodname=quantity_change",null);
+       dbhelper.UpdateGoodStock(Stock_update,product_name);
+       if (success){
+           Toast.makeText(getApplicationContext(), "Database updated successfully", Toast.LENGTH_SHORT).show();
+       }else {
+           Toast.makeText(getApplicationContext(), "Database update failed !!!", Toast.LENGTH_SHORT).show();
+       }
     }
 
+    public void deductions(){
+         current_stock = Double.valueOf(available_stock);
+         inputQuantity = Double.valueOf(s_edt_quantity);
+
+            Double resultQuantity = current_stock - inputQuantity;
+
+            Stock_update = String.valueOf(resultQuantity);
+
+    }
 
     public void calc(){
         txt_selling_price = findViewById(R.id.txt_selling_price);
@@ -231,8 +237,10 @@ public class GoodSales extends AppCompatActivity implements AdapterView.OnItemSe
         Double sub_total = (s_price * s_quantity);
         String totalprice = Double.toString(sub_total);
 
-        subtotal = findViewById(R.id.subtotal);
-        subtotal.setText(totalprice);
+
+            subtotal = findViewById(R.id.subtotal);
+            subtotal.setText(totalprice);
+
     }
 
     public void Discount(){

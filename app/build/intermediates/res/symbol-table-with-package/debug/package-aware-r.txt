@@ -1179,8 +1179,10 @@ id CTRL
 id FUNCTION
 id Gallery_choose
 id META
+id Profit_Amount
 id SHIFT
 id SYM
+id Sales_Amount
 id Take_Photo
 id action0
 id action_bar
@@ -1219,12 +1221,13 @@ id bankcardId
 id barcode
 id barrier
 id beginning
+id biggest_buyer_name
 id blocking
 id bottom
 id btn_email
+id btn_list
 id btn_reports
 id buttonPanel
-id buttonScan
 id cancel_action
 id cash_balance
 id cash_received
@@ -1233,6 +1236,7 @@ id centerCrop
 id center_horizontal
 id center_vertical
 id chains
+id chart
 id check_passcode
 id checkbox
 id choose_from_gallery
@@ -1290,6 +1294,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id expenses_amount
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1333,7 +1338,9 @@ id layout_total_price
 id left
 id line1
 id line3
+id linechart
 id listMode
+id list_customer
 id list_item
 id list_view_customers
 id list_view_sales
@@ -1474,8 +1481,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
-id textViewAddress
-id textViewName
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1495,7 +1500,11 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id tv_input_tip
+id txt_biggest_buyer
 id txt_date
+id txt_expenses
+id txt_profit
+id txt_sales
 id txt_selling_price
 id txt_transaction_id
 id uniform
@@ -1569,6 +1578,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_barcode_scanner
+layout activity_display
 layout activity_finger_print
 layout activity_good_sales
 layout activity_main
