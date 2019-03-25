@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
     <uses-feature
@@ -56,13 +57,25 @@
         </activity>
         <activity
             android:name="com.example.devsawe.duka.Activities.NewGoods"
-            android:parentActivityName="com.example.devsawe.duka.MainActivity" />
-        <activity android:name="com.example.devsawe.duka.Activities.NewSuppliers" />
-        <activity android:name="com.example.devsawe.duka.Activities.NewCustomers" />
+            android:parentActivityName="com.example.devsawe.duka.Activities.MainActivity" />
+        <activity
+            android:name="com.example.devsawe.duka.Activities.NewSuppliers"
+            android:parentActivityName="com.example.devsawe.duka.Activities.Display" />
+        <activity
+            android:name="com.example.devsawe.duka.Activities.NewCustomers"
+            android:parentActivityName="com.example.devsawe.duka.Activities.Display" />
         <activity android:name="com.example.devsawe.duka.Activities.GoodSales" />
         <activity android:name="com.example.devsawe.duka.Activities.FingerPrint" />
         <activity android:name="com.example.devsawe.duka.Activities.BarcodeScanner" />
-        <activity android:name="com.example.devsawe.duka.Activities.Display" />
+        <activity
+            android:name="com.example.devsawe.duka.Activities.Display"
+            android:parentActivityName="com.example.devsawe.duka.Activities.GoodSales" />
+        <activity
+            android:name="com.example.devsawe.duka.Activities.Make_sales"
+            android:parentActivityName="com.example.devsawe.duka.Activities.Display" />
+        <activity
+            android:name="com.example.devsawe.duka.Activities.Clients"
+            android:parentActivityName="com.example.devsawe.duka.Activities.Display" />
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:clearTaskOnLaunch="true"

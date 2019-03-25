@@ -40,6 +40,7 @@ dependencies {
     implementation 'me.spark:submitbutton:1.0.1'
     implementation 'com.journeyapps:zxing-android-embedded:3.4.0'
     implementation 'com.github.PhilJay:MPAndroidChart:v2.1.6'
+    implementation 'com.muddzdev:styleabletoast:1.0.7'
 
 
 }

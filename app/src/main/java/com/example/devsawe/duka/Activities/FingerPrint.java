@@ -42,7 +42,7 @@ public class FingerPrint extends AppCompatActivity  {
     TextView biggest_buyer_name,expenses_amount,Sales_Amount;
     DBHelper dbhelper;
     SQLiteDatabase db;
-    BarChart barChart;
+    BarChart barChart,barchart2;
     PieChart pieChart;
     LineChart lineChart;
 
@@ -55,7 +55,7 @@ public class FingerPrint extends AppCompatActivity  {
         setContentView(R.layout.activity_finger_print);
 
         // pieChart = findViewById(R.id.piechart);
-         lineChart = findViewById(R.id.linechart);
+        barchart2 = findViewById(R.id.barchart2);
 
         dbhelper = new DBHelper(getApplicationContext());
         db = dbhelper.getReadableDatabase();
@@ -73,6 +73,7 @@ public class FingerPrint extends AppCompatActivity  {
         barChart = findViewById(R.id.chart);
 
         addData();
+        addLineChart();
 
        /* BarData bardata = new BarData(getXAxisValues(), getDataSet());
         chart.setData(bardata);
@@ -132,7 +133,7 @@ public class FingerPrint extends AppCompatActivity  {
         for(int i = 0; i < dbhelper.queryXData().size(); i++)
             xVals.add(dbhelper.queryXData().get(i));
 
-        BarDataSet dataSet = new BarDataSet(yVals, "expense values");
+        BarDataSet dataSet = new BarDataSet(yVals, "Goods");
         dataSet.setColors(Common.COLORFUL_COLOR);
 
        BarData data = new BarData(xVals, dataSet);
@@ -140,16 +141,16 @@ public class FingerPrint extends AppCompatActivity  {
 
 
 
-        LimitLine line = new LimitLine(12f, "average daily expense");
+        LimitLine line = new LimitLine(0, "");
         line.setTextSize(12f);
         line.setLineWidth(4f);
-        YAxis leftAxis = barChart.getAxisLeft();
+        YAxis leftAxis = barchart2.getAxisLeft();
 
         leftAxis.addLimitLine(line);
 
-        barChart.setData(data);
-        barChart.setDescription("The expenses chart.");
-        barChart.animateY(2000);
+        barchart2.setData(data);
+        barchart2.setDescription("Good sales");
+        barchart2.animateY(2000);
 
     }
 
@@ -162,17 +163,17 @@ public class FingerPrint extends AppCompatActivity  {
 
         ArrayList<String> xVals = new ArrayList<String>();
         for(int i = 0; i < dbhelper.queryXData().size(); i++)
-            xVals.add(dbhelper.queryXData().get(i));
+            xVals.add(dbhelper.CustomersXdata().get(i));
 
-        BarDataSet dataSet = new BarDataSet(yVals, "expense values");
-        dataSet.setColors(Common.COLORFUL_COLOR);
+        BarDataSet dataSet = new BarDataSet(yVals, "customers names");
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
 
         BarData data = new BarData(xVals, dataSet);
         // PieData pieData = new PieData(xVals,dataSet);
 
 
 
-        LimitLine line = new LimitLine(12f, "average daily expense");
+        LimitLine line = new LimitLine(8, "");
         line.setTextSize(12f);
         line.setLineWidth(4f);
         YAxis leftAxis = barChart.getAxisLeft();

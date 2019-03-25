@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.devsawe.duka.Activities.GoodSales;
 import com.example.devsawe.duka.Activities.NewGoods;
+import com.example.devsawe.duka.Controller;
 import com.example.devsawe.duka.R;
 import com.example.devsawe.duka.database.DBHelper;
 import com.example.devsawe.duka.database.Database;
@@ -27,6 +28,7 @@ public class Goods extends Fragment  {
     ListView listview_goods;
     public SimpleCursorAdapter display;
     DBHelper dbhelper;
+    private Controller controller;
 
 
 
@@ -35,6 +37,8 @@ public class Goods extends Fragment  {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragmentgoods, container, false);
         context = rootView.getContext();
+
+        controller = new Controller();
 
 
         FloatingActionButton add_goods = rootView.findViewById(R.id.add_goods);
@@ -65,7 +69,8 @@ public class Goods extends Fragment  {
             if (goods.getCount()==0){
                 Toast.makeText(context, "no records", Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(context, "records present", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "records present", Toast.LENGTH_SHORT).show();
+                controller.toast("records present in the database",getContext(),R.drawable.ic_error_outline_black_24dp);
             }
 
             String from [] = {Database.GOOD_IMAGE,Database.GOOD_NAME,Database.GOOD_BARCODE,Database.GOOD_STOCK,Database.GOOD_MINIMUM_STOCK,Database.GOOD_PURCHASE_COST,Database.GOOD_SALE_PRICE};

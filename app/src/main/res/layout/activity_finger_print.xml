@@ -118,8 +118,8 @@
         app:cardUseCompatPadding="true"
         app:contentPadding="16dp">
 
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/linechart"
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barchart2"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

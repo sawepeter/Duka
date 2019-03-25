@@ -1,16 +1,23 @@
 package com.example.devsawe.duka.Activities;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -18,6 +25,7 @@ import android.widget.Toast;
 
 import com.example.devsawe.duka.R;
 import com.example.devsawe.duka.database.DBHelper;
+import com.example.devsawe.duka.database.Database;
 
 import java.util.List;
 import java.util.Random;
@@ -35,7 +43,7 @@ public class GoodSales extends AppCompatActivity implements AdapterView.OnItemSe
     RadioButton radiompesa,radiocash;
     String s_spinner_customers,s_spinner_products,s_txt_transaction_id,s_cash_received,
             s_edt_quantity,s_discount_received,s_txt_selling_price,s_subtotal,s_cash_balance,s_transaction_total,s_txt_date;
-    String available_stock;
+    String available_stock,minimum_stock;
     public static String Stock_update,product_name;
 
 
@@ -43,6 +51,8 @@ public class GoodSales extends AppCompatActivity implements AdapterView.OnItemSe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_good_sales);
+        showNotification();
+
 
         new_customer = findViewById(R.id.new_customer);
         new_customer.setOnClickListener(new View.OnClickListener() {
@@ -92,12 +102,22 @@ public class GoodSales extends AppCompatActivity implements AdapterView.OnItemSe
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (edt_quantity.length()>0){
+               /* if (edt_quantity.length()>0){
                     edt_quantity.hasFocus();
                     calc();
                 }if (edt_quantity.length() == 0){
                     edt_quantity.setText("0.0");
-                }
+                }*/
+               if (edt_quantity.length() < 0){
+                   Toast.makeText(GoodSales.this, "Input some quantity greater than 0.0", Toast.LENGTH_SHORT).show();
+
+               }else if (edt_quantity.length() >0){
+                   edt_quantity.hasFocus();
+                   calc();
+
+               }else {
+                   Toast.makeText(GoodSales.this, "Invalid Quantity !!!!", Toast.LENGTH_SHORT).show();
+               }
 
             }
         });
@@ -145,6 +165,9 @@ public class GoodSales extends AppCompatActivity implements AdapterView.OnItemSe
                 txt_selling_price = findViewById(R.id.txt_selling_price);
                 txt_selling_price.setText(dbhelper.ProdPrice(product_name));
 
+                //this is the string that will be used to do the necessary calculations
+                String sellingprice = dbhelper.ProdPrice(product_name);
+
                 //operations to update database stock
                 available_stock = dbhelper.GetQuantity(quantity_change);
             }
@@ -166,43 +189,68 @@ public class GoodSales extends AppCompatActivity implements AdapterView.OnItemSe
         make_sale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              try{
+                    try{
 
-                  dbhelper = new DBHelper(getApplicationContext());
-                  db= dbhelper.getReadableDatabase();
+                        dbhelper = new DBHelper(getApplicationContext());
+                        db= dbhelper.getReadableDatabase();
 
-                  s_spinner_customers = spinner_customers.getSelectedItem().toString();
-                  s_spinner_products = spinner_products.getSelectedItem().toString();
-                  s_txt_transaction_id = txt_transaction_id.getText().toString();
-                  s_cash_received = cash_received.getText().toString();
-                  s_edt_quantity = edt_quantity.getText().toString();
-                  s_discount_received = discount_received.getText().toString();
-                  s_txt_selling_price = txt_selling_price.getText().toString();
-                  s_subtotal = subtotal.getText().toString();
-                  s_cash_balance = cash_balance.getText().toString();
-                  s_transaction_total = transaction_total.getText().toString();
-                  s_txt_date = txt_date.getText().toString();
-                  deductions();
+                        s_spinner_customers = spinner_customers.getSelectedItem().toString();
+                        s_spinner_products = spinner_products.getSelectedItem().toString();
+                        s_txt_transaction_id = txt_transaction_id.getText().toString();
+                        s_cash_received = cash_received.getText().toString();
+                        s_edt_quantity = edt_quantity.getText().toString();
+                        s_discount_received = discount_received.getText().toString();
+                        s_txt_selling_price = txt_selling_price.getText().toString();
+                        s_subtotal = subtotal.getText().toString();
+                        s_cash_balance = cash_balance.getText().toString();
+                        s_transaction_total = transaction_total.getText().toString();
+                        s_txt_date = txt_date.getText().toString();
+                        deductions();
 
 
-                  dbhelper.AddSale(s_txt_date, s_spinner_customers, s_txt_transaction_id,
-                          s_spinner_products, s_edt_quantity, s_txt_selling_price, s_subtotal,
-                          s_discount_received, s_transaction_total, s_cash_received,s_cash_balance);
-                  if (inputQuantity>current_stock && current_stock<=0 && inputQuantity == 0) {
-                      Toast.makeText(getApplicationContext(), "Sorry quantity demanded is invalid !!!", Toast.LENGTH_SHORT).show();
-                  }else {
-                      Toast.makeText(getApplicationContext(), "Sale captured successfully saved!!!!", Toast.LENGTH_SHORT).show();
-                      UpdateStock();
-                      finish();
-                  }
 
-              }catch (Exception ex){
-                  success=false;
-              }
+                        if (s_edt_quantity==available_stock){
+                            Toast.makeText(GoodSales.this, "We dont sell quantitiy 2 here!!!", Toast.LENGTH_SHORT).show();
+                        }else{
+                            dbhelper.AddSale(s_txt_date, s_spinner_customers, s_txt_transaction_id,
+                                    s_spinner_products, s_edt_quantity, s_txt_selling_price, s_subtotal,
+                                    s_discount_received, s_transaction_total, s_cash_received,s_cash_balance);
+                            if (inputQuantity>current_stock && current_stock<=0 && inputQuantity == 0) {
+                                Toast.makeText(getApplicationContext(), "Sorry quantity demanded is invalid !!!", Toast.LENGTH_SHORT).show();
+                            }else {
+                                showCustomToast();
+                                UpdateStock();
+                                Notifier();
+                                finish();
+                            }
+                        }
+
+
+                    }catch (Exception ex){
+                        success=false;
+                    }
+
+
+
             }
         });
 
     }
+
+    private void showCustomToast() {
+        View view = getLayoutInflater().inflate(R.layout.custom_toast,null);
+        ImageView image = view.findViewById(R.id.image);
+        image.setImageResource(R.drawable.ic_done_light_green_a100_24dp);
+        TextView txt_toast = view.findViewById(R.id.txt_toast);
+        txt_toast.setText("Sale Captured successfully!!!");
+
+        Toast mToast = new Toast(getApplicationContext());
+        mToast.setView(view);
+        mToast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER, 0, 0);
+        mToast.setDuration(Toast.LENGTH_LONG);
+        mToast.show();
+    }
+
     public void UpdateStock(){
         dbhelper = new DBHelper(getApplicationContext());
         db= dbhelper.getReadableDatabase();
@@ -325,6 +373,34 @@ public class GoodSales extends AppCompatActivity implements AdapterView.OnItemSe
 
         spinner_products.setAdapter(productsAdapter);
     }
+
+    public void Notifier(){
+        minimum_stock = dbhelper.LowestStock();
+        if (minimum_stock == s_edt_quantity){
+            showNotification();
+        }
+    }
+
+    private void showNotification() {
+
+        // Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+        Uri sound = Uri.parse("android.resource://" + getApplicationContext().getPackageName() + "/raw/notify");
+        //Get an instance of NotificationManager
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.inv1)
+                        .setSound(sound)
+                        .setContentTitle(product_name)
+                        .setContentText("Your Good Stock is running low");
+        // Gets an instance of the NotificationManager service//
+        NotificationManager mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(001, mBuilder.build());
+    }
+
+
+
+
 
 
 

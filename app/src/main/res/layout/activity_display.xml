@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.Display">
+    android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/list_customer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
-</RelativeLayout>
+            <ListView
+                android:id="@+id/list_customer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+    <!--<Button
+        android:id="@+id/sale_toast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Sale Toast"/>-->
+
+
+</LinearLayout>

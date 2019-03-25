@@ -28,8 +28,6 @@ public class Dashboard extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //returning our layout file
-        //change R.layout.yourlayoutfilename for each of your fragments
         View rootview = inflater.inflate(R.layout.fragment_dashboard, container, false);
         context = rootview.getContext();
          stock_count = rootview.findViewById(R.id.stock_count);
@@ -98,7 +96,7 @@ public class Dashboard extends Fragment {
     }
 
     public String getSalesCount(){
-        String salescount = "SELECT * FROM "+Database.CUSTOMER_TABLE_NAME;
+        String salescount = "SELECT * FROM "+Database.SALES_TABLE_NAME;
         dbhelper = new DBHelper(getActivity());
         SQLiteDatabase db = dbhelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(salescount, null);

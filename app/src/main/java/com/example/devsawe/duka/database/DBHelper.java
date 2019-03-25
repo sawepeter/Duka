@@ -10,6 +10,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.devsawe.duka.Activities.GoodSales.product_name;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final int DB_VERSION = 1;
@@ -230,11 +232,12 @@ public class DBHelper extends SQLiteOpenHelper {
         List<String> customer_names = new ArrayList<String>();
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT customername FROM " + Database.CUSTOMER_TABLE_NAME, null);
+        Cursor cursor = db.rawQuery("SELECT customername,customerlocation FROM " + Database.CUSTOMER_TABLE_NAME, null);
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
                 customer_names.add(cursor.getString(0));
+               // customer_names.add(cursor.getString(1));
             } while (cursor.moveToNext());
         }
         // returning customer names
@@ -260,6 +263,18 @@ public class DBHelper extends SQLiteOpenHelper {
     public ArrayList<String> queryXData(){
         ArrayList<String> xNewData = new ArrayList<String>();
         SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + Database.SALE_PRODUCT + " FROM " + Database.SALES_TABLE_NAME;
+        Cursor cursor = db.rawQuery(query, null);
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            xNewData.add(cursor.getString(cursor.getColumnIndex("saleproduct")));
+        }
+        cursor.close();
+        return xNewData;
+    }
+
+    public ArrayList<String> CustomersXdata(){
+        ArrayList<String> xNewData = new ArrayList<String>();
+        SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT " + Database.SALES_CUSTOMER + " FROM " + Database.SALES_TABLE_NAME;
         Cursor cursor = db.rawQuery(query, null);
         for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
@@ -267,6 +282,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return xNewData;
+
     }
     //y axis code
 
@@ -346,6 +362,26 @@ public class DBHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
        return top_customer;
+    }
+
+    public String LowestStock(){
+        String stock_minimum=null;
+        //available_stock=== the string  that represent the current stock in the database
+        //product_name == the string that displays the good that was selected on the spinner
+        SQLiteDatabase db = this.getReadableDatabase();
+        String minimumstock = "SELECT goodminimumstock FROM table_goods WHERE goodname = '" + product_name + "'";//the product name has an issue
+
+        Cursor cursor = db.rawQuery(minimumstock,null);
+        if (cursor.moveToFirst()) {
+            do {
+                int columnminimumstock = cursor.getColumnIndex("goodminimumstock");
+                stock_minimum = cursor.getString(columnminimumstock);
+            } while (cursor.moveToNext());
+        }
+        // closing connection
+        cursor.close();
+        db.close();
+        return stock_minimum;
     }
 
     //code segment for the most sold good

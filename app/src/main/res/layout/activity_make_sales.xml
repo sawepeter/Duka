@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.Make_sales">
+
+    <LinearLayout
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_margin="9sp"
+        android:hint="Add Date"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/add_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:drawableStart="@drawable/ic_date_range_black_24dp"
+            android:editable="false"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_margin="9sp"
+                android:hint="Add Customer"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/add_customer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_person_add_black_24dp"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:editable="false"
+                    android:clickable="true"/>
+
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_margin="9sp"
+                android:hint="Add Product"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/add_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:drawableStart="@drawable/ic_add_to_queue_black_24dp"
+                    android:editable="false"
+                    android:clickable="true"/>
+
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/selected_product"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="auto_fit"
+            android:columnWidth="100dp"
+            android:horizontalSpacing="5dp"
+            android:verticalSpacing="5dp"
+            android:gravity="center"
+            android:stretchMode="columnWidth"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckedTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Payment Method"
+                android:checked="true"
+                android:checkMark="@drawable/ic_done_light_green_a100_24dp"
+                android:textAlignment="center"/>
+
+            <RadioGroup
+                android:orientation="horizontal"
+                android:layout_margin="8dp"
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radio_cash"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cash"/>
+
+                <RadioButton
+                    android:id="@+id/radio_credit"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Credit"/>
+
+                <RadioButton
+                    android:id="@+id/radio_mpesa"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mpesa"/>
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
