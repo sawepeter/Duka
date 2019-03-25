@@ -75,8 +75,6 @@ public class Suppliers extends Fragment {
             dbhelper.close();
         }catch (Exception ex){
             Toast.makeText(getActivity(), "Error:"+ex.getMessage(), Toast.LENGTH_SHORT).show();
-
         }
-
     }
 }

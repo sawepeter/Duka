@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.example.devsawe.duka.Fragments.Goods;
 import com.example.devsawe.duka.Fragments.Customers;
 import com.example.devsawe.duka.Fragments.Dashboard;
+import com.example.devsawe.duka.Fragments.Profit;
 import com.example.devsawe.duka.Fragments.Reports;
 import com.example.devsawe.duka.Fragments.SellGoods;
 import com.example.devsawe.duka.Fragments.Suppliers;
@@ -101,6 +102,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_dashboard:
                 fragment = new Dashboard();
                 break;
+            case R.id.nav_profit:
+                fragment = new Profit();
+                break;
+
         }
 
         //replacing the fragment

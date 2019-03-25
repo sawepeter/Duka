@@ -20,6 +20,10 @@
             android:id="@+id/nav_reports"
             android:icon="@drawable/gr"
             android:title="Reports" />
+        <item
+            android:id="@+id/nav_profit"
+            android:icon="@drawable/profit"
+            android:title="Transactions"/>
     </group>
 
     <item android:title="Partners">

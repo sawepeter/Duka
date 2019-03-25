@@ -2,18 +2,21 @@ package com.example.devsawe.duka.Fragments;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
+import com.example.devsawe.duka.Activities.BarcodeScanner;
+import com.example.devsawe.duka.Activities.Clients;
 import com.example.devsawe.duka.Activities.Display;
 import com.example.devsawe.duka.Activities.FingerPrint;
+import com.example.devsawe.duka.Activities.Make_sales;
 import com.example.devsawe.duka.R;
 
 public class Reports extends Fragment {
@@ -31,7 +34,7 @@ public class Reports extends Fragment {
         btn_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,Display.class);
+                Intent intent = new Intent(context,Make_sales.class);
                 startActivity(intent);
             }
         });
@@ -40,13 +43,35 @@ public class Reports extends Fragment {
         btn_reports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              Intent intent = new Intent(context,FingerPrint.class);
+              Intent intent = new Intent(context,FingerPrint.class);//fails to pick the fingerprint class will have to rename it.
                 startActivity(intent);
             }
         });
 
+        Button btn_barcode = reportsview.findViewById(R.id.btn_barcode);
+        btn_barcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,BarcodeScanner.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btn_clients = reportsview.findViewById(R.id.btn_clients);
+        btn_clients.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,Clients.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
         return reportsview;
     }
+
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -54,4 +79,5 @@ public class Reports extends Fragment {
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Duka Reports");
     }
+
 }

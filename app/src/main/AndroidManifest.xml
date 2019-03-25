@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/navicon"
@@ -26,13 +28,24 @@
         </activity>
         <activity
             android:name=".Activities.NewGoods"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".Activities.NewSuppliers" />
-        <activity android:name=".Activities.NewCustomers" />
+            android:parentActivityName=".Activities.MainActivity" />
+        <activity
+            android:name=".Activities.NewSuppliers"
+            android:parentActivityName=".Activities.Display"/>
+        <activity
+            android:name=".Activities.NewCustomers"
+            android:parentActivityName=".Activities.Display"/>
         <activity android:name=".Activities.GoodSales" />
         <activity android:name=".Activities.FingerPrint" />
         <activity android:name=".Activities.BarcodeScanner" />
-        <activity android:name=".Activities.Display"></activity>
+        <activity android:name=".Activities.Display"
+            android:parentActivityName=".Activities.GoodSales"/>
+        <activity
+            android:name=".Activities.Make_sales"
+            android:parentActivityName=".Activities.Display"/>
+        <activity
+            android:name=".Activities.Clients"
+            android:parentActivityName=".Activities.Display"/>
     </application>
 
 </manifest>
