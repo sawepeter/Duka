@@ -74,10 +74,11 @@ public class Make_sales extends AppCompatActivity {
         add_product.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               /* finish();
-                Intent intent = new Intent(Make_sales.this,BarcodeScanner.class);
-                startActivity(intent);*/
-                goods();
+                finish();
+                Intent intent = new Intent(Make_sales.this,Clients.class);
+                startActivity(intent);
+                finish();
+               // goods();
             }
         });
         showcurrentdate();

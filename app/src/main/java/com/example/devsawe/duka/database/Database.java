@@ -54,6 +54,15 @@ public class Database {
     public static final String SALE_BALANCE = "salebalance";
     public static final String SALE_PAYMENT_METHOD = "salepaymentmethod";
 
+    //table goods sales
+    public static final  String GOOD_SALES_TABLE_NAME = "tablegoodsales";
+
+    public static final String GOODSALES_DATE = "goodsalesdate";
+    public static final String QUANTITYSOLD = "quantitysold";
+    public static final String GOODSOLD = "goodsold";
+    public static final String GRANDTOTAL =  "grandtotal";
+    
+
 
 
 

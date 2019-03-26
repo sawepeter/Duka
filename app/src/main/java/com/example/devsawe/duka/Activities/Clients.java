@@ -1,5 +1,6 @@
 package com.example.devsawe.duka.Activities;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -28,13 +29,18 @@ import com.example.devsawe.duka.Controller;
 import com.example.devsawe.duka.R;
 import com.example.devsawe.duka.database.DBHelper;
 import com.example.devsawe.duka.database.Database;
+import com.mikhaellopez.circularimageview.CircularImageView;
+
+import java.text.SimpleDateFormat;
 
 public class Clients extends AppCompatActivity {
 
     Button sale_toast;
     int minteger = 0;
-    TextView displayInteger,product_sprice,grandtotal,quantity;
-    String grand_total;
+    TextView displayInteger,product_sprice,grandtotal,quantity,txtproduct,txtprice,add_date;
+    CircularImageView products_image;
+    String image_product;
+    String grand_total,selected_product,productselect_price;
     ListView list_customer;
     public SimpleCursorAdapter clients_display;
     private Controller controller;
@@ -48,20 +54,10 @@ public class Clients extends AppCompatActivity {
 
         controller = new Controller();
 
-
-
         preferences_product = PreferenceManager.getDefaultSharedPreferences(this);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
-       getGoods();
-
-       // sale_toast = findViewById(R.id.sale_toast);
-       /* sale_toast.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    //showDialogSales();
-            }
-        });*/
+        getGoods();
 
         }
         public void showDialogSales(){
@@ -71,13 +67,25 @@ public class Clients extends AppCompatActivity {
             final View dialogview = inflater.inflate(R.layout.custom_dialog, null);
             dialogBuilder.setTitle("Add Product");
            dialogBuilder.setView(dialogview);
+            selected_product = preferences_product.getString("Selected_product","");
+            productselect_price = preferences_product.getString("selectproduct_price","");
+          //  image_product = preferences_product.getString("imagepath","");
+            TextView txtselected_product = dialogview.findViewById(R.id.txtselected_product);
+            add_date = dialogview.findViewById(R.id.add_date);
+            showcurrentdate();
+            TextView txtproductselect_price = dialogview.findViewById(R.id.product_price);
+            CircularImageView imageview = dialogview.findViewById(R.id.imageview);
+            //imageview.setImageDrawable(image_product);
+            txtselected_product.setText(selected_product);
+            txtproductselect_price.setText(productselect_price);
+            Button add_cart = dialogview.findViewById(R.id.add_cart);
+            add_cart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    controller.toast("Kuwa mpole kaka !!!",getApplicationContext(),R.drawable.navicon);
+                }
+            });
            dialogBuilder.setNegativeButton("CANCEL",null);
-           dialogBuilder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
-               @Override
-               public void onClick(DialogInterface dialog, int which) {
-                   Toast.makeText(Clients.this, "Thanks you!!!", Toast.LENGTH_SHORT).show();
-               }
-           });
            Button decrease = dialogview.findViewById(R.id.decrease);
            decrease.setOnClickListener(new View.OnClickListener() {
                @Override
@@ -99,7 +107,7 @@ public class Clients extends AppCompatActivity {
 
                }
            });
-            product_sprice = dialogview.findViewById(R.id.product_sprice);
+            product_sprice = dialogview.findViewById(R.id.product_price);
             grandtotal = dialogview.findViewById(R.id.grandtotal);
             quantity = dialogview.findViewById(R.id.quantity);
 
@@ -108,8 +116,6 @@ public class Clients extends AppCompatActivity {
 
         }
         private void calc() {
-        //Toast.makeText(this, "Its working!!", Toast.LENGTH_SHORT).show();
-            controller.toast("Its working",Clients.this,R.drawable.ic_done_light_green_a100_24dp);
         displayInteger.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -166,9 +172,13 @@ public class Clients extends AppCompatActivity {
             list_customer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    TextView txtproduct = view.findViewById(R.id.good);
+                    txtproduct = view.findViewById(R.id.good);
+                    txtprice = view.findViewById(R.id.sale_price);
+                    products_image = view.findViewById(R.id.db_image);
                     SharedPreferences.Editor edit = preferences_product.edit();
                     edit.putString("Selected_product",txtproduct.getText().toString());
+                    edit.putString("selectproduct_price",txtprice.getText().toString());
+                   // edit.putString("imagepath",products_image.getDrawable().toString());
                     edit.apply();
                     showDialogSales();
                     controller.toast("You clicked !!!" +txtproduct.getText().toString(),Clients.this,R.drawable.navicon);
@@ -177,8 +187,16 @@ public class Clients extends AppCompatActivity {
             });
             dbhelper.close();
         }catch (Exception ex){
-            Toast.makeText(getApplicationContext(), "Error:"+ex.getMessage(), Toast.LENGTH_SHORT).show();
+            controller.toast("Error"+ex.getMessage(),getApplicationContext(),R.drawable.navicon);
         }
+    }
+
+    public void showcurrentdate(){
+        long date = System.currentTimeMillis();
+
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy h:mm a");
+        String dateString = sdf.format(date);
+        add_date.setText(dateString);
     }
 
 

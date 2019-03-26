@@ -629,6 +629,8 @@ color background_material_dark
 color background_material_light
 color backgroundcolor
 color black
+color blue2
+color blue25
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -674,6 +676,7 @@ color foreground_material_dark
 color foreground_material_light
 color gray
 color green
+color grey05
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color lightgray
@@ -718,6 +721,8 @@ color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
 color notification_material_background_media_default_color
+color orange4
+color orange5
 color pink
 color primary_dark_material_dark
 color primary_dark_material_light
@@ -751,9 +756,13 @@ color viewfinder_border
 color viewfinder_laser
 color viewfinder_mask
 color white
+color white1
+color white2
 color whitetext
 color yello
 color yellow
+color yellow1
+color yellow2
 color zxing_custom_possible_result_points
 color zxing_custom_result_view
 color zxing_custom_viewfinder_laser
@@ -1100,6 +1109,7 @@ drawable cerclebackgroundpink
 drawable cerclebackgroundpurple
 drawable cerclebackgroundyello
 drawable countgoods
+drawable custombutton
 drawable customer
 drawable customers
 drawable dashboard
@@ -1181,6 +1191,7 @@ drawable re
 drawable report
 drawable reports
 drawable reportss
+drawable roundbutton
 drawable rounded_border_accent
 drawable rounded_border_transaparent
 drawable sales_border
@@ -1223,6 +1234,7 @@ id actions
 id activity_chooser_view_content
 id activity_main
 id add
+id add_cart
 id add_customer
 id add_date
 id add_goods
@@ -1343,6 +1355,7 @@ id icon_group
 id ifRoom
 id image
 id imageView
+id imageview
 id img_btn_call
 id img_btn_sms
 id increase
@@ -1431,7 +1444,6 @@ id price
 id product_name
 id product_of_supplier
 id product_price
-id product_sprice
 id progress_circular
 id progress_horizontal
 id purchase_cost
@@ -1546,6 +1558,7 @@ id txt_sales
 id txt_selling_price
 id txt_toast
 id txt_transaction_id
+id txtselected_product
 id uniform
 id unlabeled
 id up
