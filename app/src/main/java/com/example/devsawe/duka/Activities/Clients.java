@@ -37,7 +37,7 @@ public class Clients extends AppCompatActivity {
 
     Button sale_toast;
     int minteger = 0;
-    TextView displayInteger,product_sprice,grandtotal,quantity,txtproduct,txtprice,add_date;
+    TextView displayInteger,product_sprice,grandtotal,quantity,txtproduct,txtprice,add_date,txtselected_product,orderedquantity,carttotal;
     CircularImageView products_image;
     String image_product;
     String grand_total,selected_product,productselect_price;
@@ -45,6 +45,10 @@ public class Clients extends AppCompatActivity {
     public SimpleCursorAdapter clients_display;
     private Controller controller;
     SharedPreferences preferences_product;
+    DBHelper dbhelper;
+    SQLiteDatabase db;
+    Boolean success = true;
+    String cart_date,cart_item,cart_quantity,cart_total;
 
 
     @Override
@@ -70,11 +74,13 @@ public class Clients extends AppCompatActivity {
             selected_product = preferences_product.getString("Selected_product","");
             productselect_price = preferences_product.getString("selectproduct_price","");
           //  image_product = preferences_product.getString("imagepath","");
-            TextView txtselected_product = dialogview.findViewById(R.id.txtselected_product);
+             txtselected_product = dialogview.findViewById(R.id.product_selected);
             add_date = dialogview.findViewById(R.id.add_date);
             showcurrentdate();
             TextView txtproductselect_price = dialogview.findViewById(R.id.product_price);
             CircularImageView imageview = dialogview.findViewById(R.id.imageview);
+            orderedquantity = dialogview.findViewById(R.id.ordered_quantity);
+            carttotal = dialogview.findViewById(R.id.grandtotal);
             //imageview.setImageDrawable(image_product);
             txtselected_product.setText(selected_product);
             txtproductselect_price.setText(productselect_price);
@@ -82,7 +88,30 @@ public class Clients extends AppCompatActivity {
             add_cart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    controller.toast("Kuwa mpole kaka !!!",getApplicationContext(),R.drawable.navicon);
+                    try {
+
+                        dbhelper = new DBHelper(getApplicationContext());
+                        db= dbhelper.getReadableDatabase();
+
+                        cart_date = add_date.getText().toString();
+                        cart_item = txtselected_product.getText().toString();
+                        cart_quantity = orderedquantity.getText().toString();
+                        cart_total = carttotal.getText().toString();
+
+
+                        dbhelper.AddCart(cart_date, cart_item, cart_quantity, cart_total);
+                        if (!CartValidate()){
+                            Toast.makeText(Clients.this, "Ensure the quantity has a value greater than 0", Toast.LENGTH_SHORT).show();
+                        } else if(success){
+                            Toast.makeText(getApplicationContext(), "Good successfully !!!!", Toast.LENGTH_SHORT).show();
+                            controller.toast("Good successfully added to cart ",Clients.this,R.drawable.navicon);
+                            finish();
+                        }else {
+                            Toast.makeText(getApplicationContext(), "Good failed to save !!!!", Toast.LENGTH_SHORT).show();
+                        }
+                    }catch (Exception ex){
+                        success=false;
+                    }
                 }
             });
            dialogBuilder.setNegativeButton("CANCEL",null);
@@ -115,6 +144,20 @@ public class Clients extends AppCompatActivity {
            dialogBuilder.show();
 
         }
+
+    private  boolean CartValidate() {
+        boolean valid = true;
+
+        String first = orderedquantity.getText().toString();
+        Double quantity = Double.parseDouble(first);
+
+        if (quantity <= 0){
+            orderedquantity.setError("Quantity should be greater than zero");
+            valid = false;
+        }
+
+        return valid;
+    }
         private void calc() {
         displayInteger.addTextChangedListener(new TextWatcher() {
             @Override

@@ -12,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.devsawe.duka.Controller;
+import com.example.devsawe.duka.Fragments.Cartfragment;
 import com.example.devsawe.duka.Fragments.Goods;
 import com.example.devsawe.duka.Fragments.Customers;
 import com.example.devsawe.duka.Fragments.Dashboard;
@@ -23,6 +25,7 @@ import com.example.devsawe.duka.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    Controller controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        controller = new Controller();
 
 
 
@@ -71,7 +76,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_receipt) {
+            controller.toast("Its working !!!",getApplicationContext(),R.drawable.navicon);
             return true;
         }
 
@@ -104,6 +110,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_profit:
                 fragment = new Profit();
+                break;
+            case R.id.nav_cart:
+                fragment = new Cartfragment();
                 break;
 
         }

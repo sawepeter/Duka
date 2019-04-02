@@ -41,6 +41,8 @@ dependencies {
     implementation 'com.journeyapps:zxing-android-embedded:3.4.0'
     implementation 'com.github.PhilJay:MPAndroidChart:v2.1.6'
     implementation 'com.muddzdev:styleabletoast:1.0.7'
+    implementation 'q.rorbin:badgeview:1.1.3'
+    implementation 'com.codemybrainsout.onboarding:onboarder:1.0.4'
 
 
 }

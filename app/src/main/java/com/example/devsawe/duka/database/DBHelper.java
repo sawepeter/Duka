@@ -3,6 +3,7 @@ package com.example.devsawe.duka.database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -129,16 +130,35 @@ public class DBHelper extends SQLiteOpenHelper {
                 + Database.SALE_AMOUNT_RECEIVED + ", "
                 + Database.SALE_BALANCE + ")  Values ('1', '1214', '18-02-2019', 'Devsawe','VFR7686','Kimbo','10Kgs','Ksh: 500','Ksh: 5000','Ksh: 100','Ksh : 5', 'Ksh: 4900','Ksh: 0.00')";
 
+        //sales  table
+        String cart_table_sql = "create table " + Database.CART_TABLE_NAME + "( " +
+                Database.ROW_ID + " integer  primary key autoincrement," +
+                Database.CART_ITEM_ID + " INTEGER," +
+                Database.CART_ITEM_DATE  + " DATE," +
+                Database.CART_ITEM_NAME  + " TEXT unique," +
+                Database.CART_ITEM_QUANTITY  + " TEXT," +
+                Database.CART_ITEM_TOTAL  + " TEXT)";
+
+        String DefaultCart = "INSERT INTO " + Database.SALES_TABLE_NAME + " ("
+                + Database.ROW_ID + ", "
+                + Database.CART_ITEM_ID + ", "
+                + Database.CART_ITEM_DATE + ", "
+                + Database.CART_ITEM_NAME + ", "
+                + Database.CART_ITEM_QUANTITY + ", "
+                + Database.CART_ITEM_TOTAL + ") Values ('1', '1214', '18-02-2019', 'Onions','30','Ksh: 5000')";
+
         try {
             database.execSQL(user_table_sql);
             database.execSQL(supplier_table_sql);
             database.execSQL(customer_table_sql);
             database.execSQL(sale_table_sql);
+            database.execSQL(cart_table_sql);
 
             //loading the default information
             database.execSQL(DefaultUser);
             database.execSQL(DefaultSupplier);
             database.execSQL(DefaultCustomer);
+            database.execSQL(DefaultCart);
             //database.execSQL(DefaultSales);
 
         }catch (Exception e){
@@ -188,17 +208,9 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values =new ContentValues();
         values.put(Database.GOOD_STOCK,goodavailablestock);
-
-
         long row =db.update(Database.GOODS_TABLE_NAME,values,Database.GOOD_NAME+ "=?",new String[]{goodname});
-
         if (row>0){
-
-
         }
-
-
-
     }
 
 
@@ -225,6 +237,47 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(Database.CUSTOMER_LOCATION,customerlocation);
         contentValues.put(Database.CUSTOMER_CREDIT,creditamount);
         return db.insert(Database.CUSTOMER_TABLE_NAME,null,contentValues);
+    }
+
+    public long AddCart(String cartdate,String cartitemname,String cartquantity,String cartgrandtotal){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Database.CART_ITEM_DATE,cartdate);
+        contentValues.put(Database.CART_ITEM_NAME,cartitemname);
+        contentValues.put(Database.CART_ITEM_QUANTITY,cartquantity);
+        contentValues.put(Database.CART_ITEM_TOTAL,cartgrandtotal);
+        return db.insert(Database.CART_TABLE_NAME,null,contentValues);
+    }
+
+   public void UpdateCart(String cartitemname,String cartitemquantity,String cartitem,String cartitemtotal){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(Database.CART_ITEM_QUANTITY,cartitemquantity);
+        values.put(Database.CART_ITEM_TOTAL,cartitemtotal);
+        long row = db.update(Database.CART_TABLE_NAME,values,Database.CART_ITEM_NAME+ "?=?",new String[]{cartitemname});
+        if (row>0) {
+        }
+   }
+
+    public int getNoOfItemsInCart() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int returnValueInt = (int) DatabaseUtils.longForQuery(db, "SELECT Count(*)  FROM table_cart ", null);
+        return returnValueInt;
+    }
+
+    public double sumOfTotalPricesOfItemsInCart() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Double returnValueDouble = (double) DatabaseUtils.longForQuery(db, "SELECT SUM(cartitemtotal)  FROM table_cart ", null);
+        return returnValueDouble;
+    }
+
+    public boolean clearCart() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        boolean successful = db.delete("table_cart", null, null) > 0;
+        db.close();
+        return successful;
     }
 
     //this function gets the customer names and displays them to spinner widget

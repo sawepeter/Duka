@@ -8,6 +8,7 @@ public class Database {
     public static final String SUPPLIER_ID = "supplierid";
     public static final String CUSTOMER_ID = "custommerid";
     public static final String SALE_ID= "saleid";
+    public static final String CART_ITEM_ID = "cartitemid";
 
     //table goods
     public static final String GOODS_TABLE_NAME = "table_goods";
@@ -55,12 +56,12 @@ public class Database {
     public static final String SALE_PAYMENT_METHOD = "salepaymentmethod";
 
     //table goods sales
-    public static final  String GOOD_SALES_TABLE_NAME = "tablegoodsales";
+    public static final  String CART_TABLE_NAME = "table_cart";
 
-    public static final String GOODSALES_DATE = "goodsalesdate";
-    public static final String QUANTITYSOLD = "quantitysold";
-    public static final String GOODSOLD = "goodsold";
-    public static final String GRANDTOTAL =  "grandtotal";
+    public static final String CART_ITEM_DATE = "cartitemdate";
+    public static final String CART_ITEM_NAME = "itemname";
+    public static final String CART_ITEM_QUANTITY = "cartitemquantity";
+    public static final String CART_ITEM_TOTAL =  "cartitemtotal";
     
 
 

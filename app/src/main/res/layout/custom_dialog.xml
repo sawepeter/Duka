@@ -48,7 +48,7 @@
             android:src="@drawable/avatar"/>
 
         <TextView
-            android:id="@+id/txtselected_product"
+            android:id="@+id/product_selected"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:textSize="20sp"
