@@ -293,6 +293,7 @@ public class NewGoods extends AppCompatActivity implements View.OnClickListener 
             return true;
         }
         return super.onOptionsItemSelected(item);
+
     }
 
 

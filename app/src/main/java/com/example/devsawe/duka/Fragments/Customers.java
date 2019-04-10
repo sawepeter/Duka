@@ -43,7 +43,6 @@ public class Customers extends Fragment {
 
         controller = new Controller();
 
-
         FloatingActionButton add_customer = rootView.findViewById(R.id.add_customer);
         add_customer.setOnClickListener(new View.OnClickListener() {
             @Override

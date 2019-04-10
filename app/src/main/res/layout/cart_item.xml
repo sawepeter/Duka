@@ -67,8 +67,6 @@
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />
                 </LinearLayout>
-
-
             </LinearLayout>
 
             <LinearLayout

@@ -24,17 +24,17 @@ public class Controller {
         }
     }
 
-    public FloatingActionButton fab(Activity activity, boolean show, int image) {
+    public FloatingActionButton fab_cart(Activity activity, boolean show, int image) {
 
-        final FloatingActionButton fab = (FloatingActionButton) activity.findViewById(R.id.fab_cart);
+        final FloatingActionButton fab_cart = activity.findViewById(R.id.fab_cart);
 
         if (show) {
-            fab.setImageResource(image);
-            fab.show();
+            fab_cart.setImageResource(image);
+            fab_cart.show();
         } else {
-            fab.setImageResource(image);
-            fab.hide();
+            fab_cart.setImageResource(image);
+            fab_cart.hide();
         }
-        return fab;
+        return fab_cart;
     }
 }

@@ -8,7 +8,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.devsawe.duka.Model.CartModel;
+import com.example.devsawe.duka.Model.TransactionModel;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static com.example.devsawe.duka.Activities.GoodSales.product_name;
@@ -34,6 +39,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " +  Database.SUPPLIER_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + Database.CUSTOMER_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + Database.SALES_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " +Database.CART_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " +Database.TRANSACTION_TABLE_NAME);
 
         onCreate(db);
 
@@ -59,7 +66,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 + Database.GOOD_NAME + ", "
                 + Database.GOOD_BARCODE + ", "
                 + Database.GOOD_STOCK + ", "
-                + Database.GOOD_MINIMUM_STOCK + ", "
+                + Database.GOOD_MINIMUM_STOCK + ","
                 + Database.GOOD_PURCHASE_COST + ", "
                 + Database.GOOD_SALE_PRICE + ") Values ('1', '1214', 'Image Path', 'KDF', '8500096','10','2','100','50')";
 
@@ -130,22 +137,51 @@ public class DBHelper extends SQLiteOpenHelper {
                 + Database.SALE_AMOUNT_RECEIVED + ", "
                 + Database.SALE_BALANCE + ")  Values ('1', '1214', '18-02-2019', 'Devsawe','VFR7686','Kimbo','10Kgs','Ksh: 500','Ksh: 5000','Ksh: 100','Ksh : 5', 'Ksh: 4900','Ksh: 0.00')";
 
+
+       //transaction table
+        String transaction_table_sql = "create table " + Database.TRANSACTION_TABLE_NAME + "(" +
+                Database.ROW_ID + "INTEGER primary key autoincrement," +
+                Database.ID_TRANSACTION + " TEXT," +
+                Database.TRANSACTIONS_DATE  + " TEXT," +
+                Database.TRANSACTION_ITEMS  + "VARCHAR," +
+                Database.TRANSACTION_TOTAL  + " TEXT," +
+                Database.TRANSACTION_SELLINGPRICE  + " TEXT," +
+                Database.TRANSACTION_BUYINGPRICE  + " TEXT," +
+                Database.TRANSACTION_CASH_IN  + " TEXT," +
+                Database.TRANSACTION_TIME  + " TEXT)";
+
+
+        String Defaulttransaction = "INSERT INTO " + Database.TRANSACTION_TABLE_NAME + " ("
+                + Database.ROW_ID + ", "
+                + Database.ID_TRANSACTION + ", "
+                + Database.TRANSACTIONS_DATE + ", "
+                + Database.TRANSACTION_ITEMS + ", "
+                + Database.TRANSACTION_TOTAL + ", "
+                + Database.TRANSACTION_SELLINGPRICE + ", "
+                + Database.TRANSACTION_BUYINGPRICE + ", "
+                + Database.TRANSACTION_CASH_IN + ", "
+                + Database.TRANSACTION_TIME + ") Values ('1', '1214', '18-02-2019', 'Onions','30','Ksh: 5000',' Ksh 50','ksh 100','10:00 AM')";
+
         //sales  table
         String cart_table_sql = "create table " + Database.CART_TABLE_NAME + "( " +
-                Database.ROW_ID + " integer  primary key autoincrement," +
+                Database.ROW_ID + " INTEGER  primary key autoincrement," +
                 Database.CART_ITEM_ID + " INTEGER," +
                 Database.CART_ITEM_DATE  + " DATE," +
                 Database.CART_ITEM_NAME  + " TEXT unique," +
                 Database.CART_ITEM_QUANTITY  + " TEXT," +
-                Database.CART_ITEM_TOTAL  + " TEXT)";
+                Database.CART_ITEM_TOTAL  + " TEXT," +
+                Database.CART_SELLING_PRICE  + " TEXT," +
+                Database.CART_BUYING_PRICE  + " TEXT)";
 
-        String DefaultCart = "INSERT INTO " + Database.SALES_TABLE_NAME + " ("
+        String DefaultCart = "INSERT INTO " + Database.CART_TABLE_NAME + " ("
                 + Database.ROW_ID + ", "
                 + Database.CART_ITEM_ID + ", "
                 + Database.CART_ITEM_DATE + ", "
                 + Database.CART_ITEM_NAME + ", "
                 + Database.CART_ITEM_QUANTITY + ", "
-                + Database.CART_ITEM_TOTAL + ") Values ('1', '1214', '18-02-2019', 'Onions','30','Ksh: 5000')";
+                + Database.CART_ITEM_TOTAL + ", "
+                + Database.CART_SELLING_PRICE + ", "
+                + Database.CART_BUYING_PRICE+ ") Values ('1', '1214', '18-02-2019', 'Onions','30','Ksh: 5000','50','100')";
 
         try {
             database.execSQL(user_table_sql);
@@ -153,13 +189,15 @@ public class DBHelper extends SQLiteOpenHelper {
             database.execSQL(customer_table_sql);
             database.execSQL(sale_table_sql);
             database.execSQL(cart_table_sql);
+            database.execSQL(transaction_table_sql);
 
             //loading the default information
             database.execSQL(DefaultUser);
             database.execSQL(DefaultSupplier);
             database.execSQL(DefaultCustomer);
             database.execSQL(DefaultCart);
-            //database.execSQL(DefaultSales);
+            database.execSQL(DefaultSales);
+            database.execSQL(Defaulttransaction);
 
         }catch (Exception e){
             Log.d("Duka.db", "Error in DBHelper.onCreate() : " + e.getMessage());
@@ -239,7 +277,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.insert(Database.CUSTOMER_TABLE_NAME,null,contentValues);
     }
 
-    public long AddCart(String cartdate,String cartitemname,String cartquantity,String cartgrandtotal){
+    public long AddCart(String cartdate,String cartitemname,String cartquantity,String cartgrandtotal,String cartsellingprice,String cartbuyingprice){
 
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -248,7 +286,33 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(Database.CART_ITEM_NAME,cartitemname);
         contentValues.put(Database.CART_ITEM_QUANTITY,cartquantity);
         contentValues.put(Database.CART_ITEM_TOTAL,cartgrandtotal);
+        contentValues.put(Database.CART_SELLING_PRICE,cartsellingprice);
+        contentValues.put(Database.CART_BUYING_PRICE,cartbuyingprice);
         return db.insert(Database.CART_TABLE_NAME,null,contentValues);
+    }
+
+    public boolean InsertTransaction(TransactionModel model){
+
+        boolean success = false;
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Database.TRANSACTIONS_DATE,model.getTransactiondate());
+        contentValues.put(Database.TRANSACTION_ITEMS,model.getTransactionitems());
+        contentValues.put(Database.TRANSACTION_TOTAL,model.getTransactiontotal());
+        contentValues.put(Database.TRANSACTION_SELLINGPRICE,model.getTransactionSellingprice());
+        contentValues.put(Database.TRANSACTION_BUYINGPRICE,model.getTransactionBptotal());
+        contentValues.put(Database.TRANSACTION_CASH_IN,model.getTransactioncashin());
+        contentValues.put(Database.TRANSACTION_TIME,dateFormat.format(date));
+        if (db.insert(Database.TRANSACTION_TABLE_NAME,null,contentValues)>= 1) {
+            success = true;
+       }
+        db.close();
+         return success;
     }
 
    public void UpdateCart(String cartitemname,String cartitemquantity,String cartitem,String cartitemtotal){
@@ -267,6 +331,20 @@ public class DBHelper extends SQLiteOpenHelper {
         return returnValueInt;
     }
 
+    //function that displays the selling price of cart items or goods
+    public double sumofTotalSpOfItemsInCart(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Double returnValueDouble = (double) DatabaseUtils.longForQuery(db,"SELECT SUM(cartsellingprice)  FROM table_cart",null);
+        return returnValueDouble;
+    }
+    //function that calculates the buying price of the goods present in cart
+    public double sumOfTotalBpPricesOfItemsInCart() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Double returnValueDouble = (double) DatabaseUtils.longForQuery(db, "SELECT SUM(cartbuyingprice)  FROM table_cart", null);
+        return returnValueDouble;
+    }
+
+    // function that calculates the total cost of the items in cart
     public double sumOfTotalPricesOfItemsInCart() {
         SQLiteDatabase db = this.getReadableDatabase();
         Double returnValueDouble = (double) DatabaseUtils.longForQuery(db, "SELECT SUM(cartitemtotal)  FROM table_cart ", null);
@@ -323,6 +401,32 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return xNewData;
+    }
+
+    public ArrayList<CartModel> getAllItemsInCart(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<CartModel> cartdata = new ArrayList<>();
+        String cartquery = "SELECT * FROM  table_cart";
+        Cursor cursor = db.rawQuery(cartquery,null);
+        if (!cursor.isLast()){
+            while (cursor.moveToNext()){
+                CartModel cart = new CartModel();
+                cart.setCartdate(cursor.getString(0));
+                cart.setCartname(cursor.getString(1));
+                cart.setCartquantity(cursor.getString(2));
+                cart.setCarttotal(cursor.getString(3));
+                cartdata.add(cart);
+            }
+        }
+        db.close();
+        //looping through all rows and adding to list
+        if (cursor == null){
+            return null;
+        } else if (!cursor.moveToFirst()){
+            cursor.close();
+            return null;
+        }
+        return cartdata;
     }
 
     public ArrayList<String> CustomersXdata(){

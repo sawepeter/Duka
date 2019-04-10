@@ -1170,6 +1170,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_note_add_black_24dp
 drawable ic_person_add_black_24dp
+drawable ic_receipt_black_24dp
 drawable ic_remove_circle_light_green_a100_24dp
 drawable ic_remove_circle_lime_100_24dp
 drawable ic_remove_from_queue_light_green_a100_24dp
@@ -1212,6 +1213,7 @@ drawable previous
 drawable profit
 drawable purchase
 drawable re
+drawable rect_border_transaparent
 drawable rectangle_button
 drawable report
 drawable reports
@@ -1290,7 +1292,9 @@ id bottom
 id btn_barcode
 id btn_change
 id btn_clients
+id btn_dismiss
 id btn_email
+id btn_finish
 id btn_list
 id btn_remove
 id btn_reports
@@ -1305,6 +1309,8 @@ id cart_quantity
 id cart_total
 id cash_balance
 id cash_received
+id cashback
+id cashin
 id center
 id centerCrop
 id center_horizontal
@@ -1432,6 +1438,7 @@ id list_cart
 id list_customer
 id list_item
 id list_product
+id list_sell
 id list_view_customers
 id list_view_sales
 id list_view_suppliers
@@ -1493,6 +1500,7 @@ id percent
 id phone_of_supplier
 id pin
 id price
+id product_buying_price
 id product_name
 id product_of_supplier
 id product_price
@@ -1504,6 +1512,8 @@ id quantity
 id quantity_bought
 id quantity_units
 id radio
+id radioSend
+id radioView
 id radio_cash
 id radio_credit
 id radio_mpesa
@@ -1606,6 +1616,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id transno
 id tv_description
 id tv_input_tip
 id tv_title
@@ -1722,6 +1733,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout dialog_sell
 layout fragment_ahoy
 layout fragment_cart
 layout fragment_customers
