@@ -567,6 +567,8 @@ attr tooltipText
 attr track
 attr trackTint
 attr trackTintMode
+attr transition_drawable
+attr transition_duration
 attr ttcIndex
 attr useCompatPadding
 attr viewInflaterClass
@@ -623,12 +625,18 @@ color abc_tint_spinner
 color abc_tint_switch_track
 color accent_material_dark
 color accent_material_light
+color active_indicator
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
 color backgroundcolor
+color bg
 color black
+color black_transparent
+color black_transparent_image
+color blue2
+color blue25
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -674,8 +682,13 @@ color foreground_material_dark
 color foreground_material_light
 color gray
 color green
+color grey05
+color grey_200
+color grey_300
+color grey_600
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color inactive_indicator
 color lightgray
 color material_blue_grey_800
 color material_blue_grey_900
@@ -718,6 +731,8 @@ color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
 color notification_material_background_media_default_color
+color orange4
+color orange5
 color pink
 color primary_dark_material_dark
 color primary_dark_material_light
@@ -751,9 +766,13 @@ color viewfinder_border
 color viewfinder_laser
 color viewfinder_mask
 color white
+color white1
+color white2
 color whitetext
 color yello
 color yellow
+color yellow1
+color yellow2
 color zxing_custom_possible_result_points
 color zxing_custom_result_view
 color zxing_custom_viewfinder_laser
@@ -839,7 +858,9 @@ dimen abc_text_size_subhead_material
 dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
+dimen activity_half_margin
 dimen activity_horizontal_margin
+dimen activity_margin
 dimen activity_vertical_margin
 dimen card_view_padding
 dimen cardview_compat_inset_shadow
@@ -909,6 +930,7 @@ dimen hint_alpha_material_dark
 dimen hint_alpha_material_light
 dimen hint_pressed_alpha_material_dark
 dimen hint_pressed_alpha_material_light
+dimen indicator_size
 dimen item_offset
 dimen item_touch_helper_max_drag_scroll_per_frame
 dimen item_touch_helper_swipe_escape_max_velocity
@@ -985,6 +1007,7 @@ dimen padding_empty_bottom
 dimen padding_medium
 dimen padding_normal
 dimen padding_small
+dimen section_image_item
 dimen subtitle_corner_radius
 dimen subtitle_outline_width
 dimen subtitle_shadow_offset
@@ -1100,6 +1123,7 @@ drawable cerclebackgroundpink
 drawable cerclebackgroundpurple
 drawable cerclebackgroundyello
 drawable countgoods
+drawable custombutton
 drawable customer
 drawable customers
 drawable dashboard
@@ -1111,6 +1135,8 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable download
 drawable equal
+drawable fifth_bg
+drawable forth_bg
 drawable gr
 drawable gridimg
 drawable ic_add_a_photo_lime_100_24dp
@@ -1118,9 +1144,11 @@ drawable ic_add_circle_lime_100_24dp
 drawable ic_add_to_queue_black_24dp
 drawable ic_call_lime_100_24dp
 drawable ic_camera_alt_lime_100_24dp
+drawable ic_check_black_24dp
 drawable ic_check_bold_24dp
 drawable ic_check_circle_light_green_a100_24dp
 drawable ic_date_range_black_24dp
+drawable ic_delete_black_24dp
 drawable ic_done_light_green_a100_24dp
 drawable ic_done_lime_100_24dp
 drawable ic_error_outline_black_24dp
@@ -1142,9 +1170,12 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_note_add_black_24dp
 drawable ic_person_add_black_24dp
+drawable ic_receipt_black_24dp
 drawable ic_remove_circle_light_green_a100_24dp
 drawable ic_remove_circle_lime_100_24dp
 drawable ic_remove_from_queue_light_green_a100_24dp
+drawable ic_shopping_cart_black_24dp
+drawable ic_shopping_cart_white_24dp
 drawable ic_sms_lime_100_24dp
 drawable images
 drawable in
@@ -1162,6 +1193,8 @@ drawable muiltiplication
 drawable navicon
 drawable navigation_empty_icon
 drawable navimg
+drawable new_state
+drawable next
 drawable no_image
 drawable notification_action_background
 drawable notification_bg
@@ -1175,21 +1208,31 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable original_state
+drawable previous
 drawable profit
 drawable purchase
 drawable re
+drawable rect_border_transaparent
+drawable rectangle_button
 drawable report
 drawable reports
 drawable reportss
+drawable roundbutton
 drawable rounded_border_accent
 drawable rounded_border_transaparent
+drawable rounded_button
 drawable sales_border
 drawable sellgoods
+drawable seventh_bg
 drawable side_nav_bar
+drawable sixth_b
 drawable supplier
 drawable suppliers
+drawable thrid_bg
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable translate
 id ALT
 id CTRL
 id FUNCTION
@@ -1217,12 +1260,13 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_settings
+id action_receipt
 id action_text
 id actions
 id activity_chooser_view_content
 id activity_main
 id add
+id add_cart
 id add_customer
 id add_date
 id add_goods
@@ -1235,6 +1279,8 @@ id always
 id async
 id auto
 id available_stock
+id background_image
+id background_image_overlay
 id bankcardId
 id barchart2
 id barcode
@@ -1244,14 +1290,27 @@ id biggest_buyer_name
 id blocking
 id bottom
 id btn_barcode
+id btn_change
 id btn_clients
+id btn_dismiss
 id btn_email
+id btn_finish
 id btn_list
+id btn_remove
 id btn_reports
+id btn_skip
 id buttonPanel
+id button_charge
+id button_clear
+id buttons
+id buttons_layout
 id cancel_action
+id cart_quantity
+id cart_total
 id cash_balance
 id cash_received
+id cashback
+id cashin
 id center
 id centerCrop
 id center_horizontal
@@ -1263,6 +1322,7 @@ id checkbox
 id chooseDate
 id choose_from_gallery
 id chronometer
+id circle_indicator_view
 id clip_horizontal
 id clip_vertical
 id collapseActionView
@@ -1279,6 +1339,7 @@ id customer_count
 id customer_name
 id customer_number
 id customer_phone
+id cv_cardview
 id db_image
 id decor_content_parent
 id decrease
@@ -1321,6 +1382,7 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id expenses_amount
+id fab_cart
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1343,17 +1405,23 @@ id icon_group
 id ifRoom
 id image
 id imageView
+id imageview
 id img_btn_call
 id img_btn_sms
 id increase
 id info
 id invisible
 id italic
+id item_name
 id item_touch_helper_previous_elevation
+id ivNext
+id ivPrev
+id iv_image
 id iv_lock
 id iv_ok
 id labeled
 id largeLabel
+id layout_buttons
 id layout_customer
 id layout_customer_list
 id layout_image
@@ -1366,9 +1434,11 @@ id left
 id line1
 id line3
 id listMode
+id list_cart
 id list_customer
 id list_item
 id list_product
+id list_sell
 id list_view_customers
 id list_view_sales
 id list_view_suppliers
@@ -1386,9 +1456,9 @@ id minimum_stock
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
-id mymenu
 id name_of_supplier
 id nav_addgood
+id nav_cart
 id nav_customers
 id nav_dashboard
 id nav_profit
@@ -1397,6 +1467,7 @@ id nav_sales
 id nav_suppliers
 id nav_view
 id navigation_header_container
+id navigation_layout
 id never
 id new_customer
 id none
@@ -1423,15 +1494,17 @@ id paid_amount
 id parallax
 id parent
 id parentPanel
+id parent_layout
 id parent_matrix
 id percent
 id phone_of_supplier
 id pin
 id price
+id product_buying_price
 id product_name
 id product_of_supplier
 id product_price
-id product_sprice
+id product_selected
 id progress_circular
 id progress_horizontal
 id purchase_cost
@@ -1439,6 +1512,8 @@ id quantity
 id quantity_bought
 id quantity_units
 id radio
+id radioSend
+id radioView
 id radio_cash
 id radio_credit
 id radio_mpesa
@@ -1531,13 +1606,20 @@ id toolbar
 id top
 id topPanel
 id touch_outside
+id transaction_date
+id transaction_id
+id transaction_items
 id transaction_total
+id transaction_total_price
 id transition_current_scene
 id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id transno
+id tv_description
 id tv_input_tip
+id tv_title
 id txt_biggest_buyer
 id txt_date
 id txt_expenses
@@ -1552,6 +1634,7 @@ id up
 id useLogo
 id view_offset_helper
 id visible
+id vp_pager
 id withText
 id wrap
 id wrap_content
@@ -1616,6 +1699,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_ahoy
 layout activity_barcode_scanner
 layout activity_display
 layout activity_finger_print
@@ -1627,6 +1711,7 @@ layout activity_new_goods
 layout activity_new_suppliers
 layout app_bar_main
 layout avatars_dialog
+layout cart_item
 layout content_main
 layout custom_customers
 layout custom_dialog
@@ -1648,6 +1733,9 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout dialog_sell
+layout fragment_ahoy
+layout fragment_cart
 layout fragment_customers
 layout fragment_dashboard
 layout fragment_reports
@@ -1679,6 +1767,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout transaction_item
 layout zxing_barcode_scanner
 layout zxing_capture
 menu activity_main_drawer
@@ -1732,6 +1821,9 @@ string action_settings
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
+string button_finish
+string button_next
+string button_skip
 string character_counter_content_description
 string character_counter_pattern
 string fab_transformation_scrim_behavior
@@ -2345,6 +2437,7 @@ styleable Toolbar android_gravity android_minHeight buttonGravity collapseConten
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
+styleable gradient transition_drawable transition_duration
 styleable zxing_camera_preview zxing_framing_rect_height zxing_framing_rect_width zxing_preview_scaling_strategy zxing_use_texture_view
 styleable zxing_finder zxing_possible_result_points zxing_result_view zxing_viewfinder_laser zxing_viewfinder_mask
 styleable zxing_view zxing_scanner_layout

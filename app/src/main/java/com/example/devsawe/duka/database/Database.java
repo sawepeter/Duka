@@ -8,6 +8,9 @@ public class Database {
     public static final String SUPPLIER_ID = "supplierid";
     public static final String CUSTOMER_ID = "custommerid";
     public static final String SALE_ID= "saleid";
+    public static final String CART_ITEM_ID = "cartitemid";
+    public static final String ID_TRANSACTION = "transactionid";
+
 
     //table goods
     public static final String GOODS_TABLE_NAME = "table_goods";
@@ -52,7 +55,31 @@ public class Database {
     public static final String SALE_GRAND_TOTAL = "salegrandtotal";
     public static final String SALE_AMOUNT_RECEIVED = "saleamountreceived";
     public static final String SALE_BALANCE = "salebalance";
-    public static final String SALE_PAYMENT_METHOD = "salepaymentmethod";
+   // public static final String SALE_PAYMENT_METHOD = "salepaymentmethod";
+
+    //table cart
+    public static final  String CART_TABLE_NAME = "table_cart";
+
+    public static final String CART_ITEM_DATE = "cartitemdate";
+    public static final String CART_ITEM_NAME = "itemname";
+    public static final String CART_ITEM_QUANTITY = "cartitemquantity";
+    public static final String CART_ITEM_TOTAL =  "cartitemtotal";
+    public static final String CART_SELLING_PRICE = "cartsellingprice";
+    public static final String CART_BUYING_PRICE = "cartbuyingprice";
+
+
+    //table transactions
+    public static final String TRANSACTION_TABLE_NAME = "table_transactions";
+
+    public static final String TRANSACTIONS_DATE = "transactiondate";
+    public static final String TRANSACTION_ITEMS = "transactionitems";//the transaction will add the json string of cart items
+    public static final String TRANSACTION_TOTAL = "transactiontotal";
+    public static final String TRANSACTION_SELLINGPRICE = "transactionsellingprice";
+    public static final String TRANSACTION_BUYINGPRICE = "transactionbuyingprice";
+    public static final String TRANSACTION_CASH_IN = "transactioncashin";
+    public static final String TRANSACTION_TIME = "transactiontime";
+
+
 
 
 

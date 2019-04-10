@@ -24,6 +24,10 @@
             android:id="@+id/nav_profit"
             android:icon="@drawable/profit"
             android:title="Transactions"/>
+        <item
+            android:id="@+id/nav_cart"
+            android:icon="@drawable/ic_shopping_cart_white_24dp"
+            android:title="Cart"/>
     </group>
 
     <item android:title="Partners">

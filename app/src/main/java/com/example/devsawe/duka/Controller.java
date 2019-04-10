@@ -1,6 +1,8 @@
 package com.example.devsawe.duka;
 
+import android.app.Activity;
 import android.content.Context;
+import android.support.design.widget.FloatingActionButton;
 import android.widget.Toast;
 
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
@@ -20,5 +22,19 @@ public class Controller {
         } catch (Exception m) {
             Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
         }
+    }
+
+    public FloatingActionButton fab_cart(Activity activity, boolean show, int image) {
+
+        final FloatingActionButton fab_cart = activity.findViewById(R.id.fab_cart);
+
+        if (show) {
+            fab_cart.setImageResource(image);
+            fab_cart.show();
+        } else {
+            fab_cart.setImageResource(image);
+            fab_cart.hide();
+        }
+        return fab_cart;
     }
 }

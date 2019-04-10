@@ -162,9 +162,6 @@
                 android:inputType="number" />
 
         </RelativeLayout>
-
-
         </RelativeLayout>
-
     </TableLayout>
 </ScrollView>

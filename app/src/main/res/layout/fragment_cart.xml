@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_clear"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_border_accent"
+            android:text="Clear Cart"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/button_charge"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_border_accent"
+            android:text="Charge 2300"
+            android:textColor="@color/white" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/transno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttons"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="0001"
+        android:visibility="visible" />
+    <ListView
+        android:id="@+id/list_cart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/transno"
+        android:numColumns="auto_fit"
+        android:columnWidth="100dp"
+        android:horizontalSpacing="5dp"
+        android:verticalSpacing="5dp"
+        android:gravity="center"
+        android:stretchMode="columnWidth"
+        android:layout_marginTop="2dp">
+
+    </ListView>
+
+
+
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Cart Is Empty Sell Items To Populate Cart"
+        android:visibility="gone" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="28dp"
+        android:src="@android:drawable/ic_input_add" />
+
+</RelativeLayout>
