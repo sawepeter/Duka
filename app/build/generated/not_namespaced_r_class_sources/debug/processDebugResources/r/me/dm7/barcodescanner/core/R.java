@@ -12,7 +12,7 @@ public final class R {
     public static final class attr {
         private attr() {}
 
-        public static final int shouldScaleToFill = 0x7f03019f;
+        public static final int shouldScaleToFill = 0x7f0301a0;
     }
     public static final class color {
         private color() {}
@@ -30,7 +30,7 @@ public final class R {
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] BarcodeScannerView = { 0x7f03019f };
+        public static final int[] BarcodeScannerView = { 0x7f0301a0 };
         public static final int BarcodeScannerView_shouldScaleToFill = 0;
     }
 }

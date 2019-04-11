@@ -17,6 +17,7 @@ import com.example.devsawe.duka.Activities.Clients;
 import com.example.devsawe.duka.Activities.Display;
 import com.example.devsawe.duka.Activities.FingerPrint;
 import com.example.devsawe.duka.Activities.Make_sales;
+import com.example.devsawe.duka.Activities.TabCordinator;
 import com.example.devsawe.duka.R;
 
 public class Reports extends Fragment {
@@ -62,6 +63,15 @@ public class Reports extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,Clients.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btn_tablayout =  reportsview.findViewById(R.id.btn_tablayout);
+        btn_tablayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, TabCordinator.class);
                 startActivity(intent);
             }
         });

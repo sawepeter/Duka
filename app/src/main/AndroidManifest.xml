@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
@@ -16,6 +15,7 @@
         android:roundIcon="@drawable/navicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.TabCordinator"></activity>
         <activity
             android:name=".Activities.MainActivity"
             android:label="@string/app_name"
@@ -31,21 +31,22 @@
             android:parentActivityName=".Activities.MainActivity" />
         <activity
             android:name=".Activities.NewSuppliers"
-            android:parentActivityName=".Activities.Display"/>
+            android:parentActivityName=".Activities.Display" />
         <activity
             android:name=".Activities.NewCustomers"
-            android:parentActivityName=".Activities.Display"/>
+            android:parentActivityName=".Activities.Display" />
         <activity android:name=".Activities.GoodSales" />
         <activity android:name=".Activities.FingerPrint" />
         <activity android:name=".Activities.BarcodeScanner" />
-        <activity android:name=".Activities.Display"
-            android:parentActivityName=".Activities.GoodSales"/>
+        <activity
+            android:name=".Activities.Display"
+            android:parentActivityName=".Activities.GoodSales" />
         <activity
             android:name=".Activities.Make_sales"
-            android:parentActivityName=".Activities.Display"/>
+            android:parentActivityName=".Activities.Display" />
         <activity
             android:name=".Activities.Clients"
-            android:parentActivityName=".Activities.Display"/>
+            android:parentActivityName=".Activities.Display" />
     </application>
 
 </manifest>

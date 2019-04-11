@@ -1,13 +1,14 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-51:12
-INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-51:12
-INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-51:12
-INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-51:12
-MERGED from [com.android.support:design:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/03c00d71e9e054113a141716bd3f4efd/AndroidManifest.xml:17:1-24:12
+ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-52:12
+INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-52:12
+INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-52:12
+INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-52:12
 MERGED from [me.spark:submitbutton:1.0.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/submitbutton-1.0.1.aar/74439855fd81d9705de0dc44c57e1901/AndroidManifest.xml:2:1-17:12
 MERGED from [com.muddzdev:styleabletoast:1.0.7] /home/devsawe/.gradle/caches/transforms-1/files-1.1/styleabletoast-1.0.7.aar/fd0c4a6c818f63caee13240e8ae21b43/AndroidManifest.xml:2:1-17:12
 MERGED from [com.codemybrainsout.onboarding:onboarder:1.0.4] /home/devsawe/.gradle/caches/transforms-1/files-1.1/onboarder-1.0.4.aar/26a1252eb0041265b5eff24a080d32e0/AndroidManifest.xml:2:1-11:12
+MERGED from [cn.hugeterry.coordinatortablayout:coordinatortablayout:1.2.2] /home/devsawe/.gradle/caches/transforms-1/files-1.1/coordinatortablayout-1.2.2.aar/215aa4f6610fdc3ee74cb21abc862e8f/AndroidManifest.xml:2:1-17:12
+MERGED from [com.android.support:design:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/03c00d71e9e054113a141716bd3f4efd/AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/62af00a0b1ec5bd3b31aabde7171715d/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/devsawe/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/dfa8992bf221c3f9ad0b6ba57116e74d/AndroidManifest.xml:2:1-11:12
 MERGED from [com.journeyapps:zxing-android-embedded:3.4.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/zxing-android-embedded-3.4.0.aar/72fa31b0062c9346f74942f07233baeb/AndroidManifest.xml:17:1-55:12
@@ -23,8 +24,6 @@ MERGED from [com.android.support:support-fragment:28.0.0] /home/devsawe/.gradle/
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/4a1cce113fcb4c7c58f342adef740f01/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-ui:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/5ca32115aed360dde25e9d245418d333/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-utils:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/d5ae2765380ef2c262326a5a04e861db/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/8606f2257784d182bfb4714c30b66c44/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:loader:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/42bf8b357c3f623713f63c98888f3a7b/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:viewpager:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/18f01f871295732cb4bdd06f2000a330/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/e8b8208adce93d6a51449a0eba0cbd1f/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:drawerlayout:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/eac122b9a51aa99afdc92a0733a7de1b/AndroidManifest.xml:17:1-22:12
@@ -32,34 +31,36 @@ MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/devsawe/.gradle
 MERGED from [com.android.support:customview:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/ef2980adbb44dfb2fc3f473dcf60dc96/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/149578ff6f7668514ac54d8534ff0ee7/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/e7c90221b8f83c8b7a5f6a2cd9b47abc/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/42bf8b357c3f623713f63c98888f3a7b/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/80778d0d1c31d40df9cbfb98b909d2f1/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-media-compat:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/ea6c87196e82ad250097f62c20059bef/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/8606f2257784d182bfb4714c30b66c44/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-compat:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/ee4e54a282133eef4a9134b4a7d00711/AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:versionedparcelable:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/cfa2edf4b89dd6c7625d4eeab3dca23a/AndroidManifest.xml:17:1-25:12
 MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/8967bd173bcc3d50394e0d921f234feb/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:documentfile:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/bb5b7bfd0a5f3befdc501f9d98b21882/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/de45d97a5c4974989bba8f4a22c3893e/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:print:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/878d21822f679c23c4e05be46279510b/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/b8f2b566d88b48a0aec07b312678b7f9/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/c5769b52ff756a0c8807411354e504ef/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:cursoradapter:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/19d1a7ebccd6104b0d94c387f39b10fc/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/093339d76f1c09f450a8d9c15b42c6bd/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/ce1fa0ca9ce13517ccbe9d3510de4e9a/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/d1b1aac3a70677cc56b231fd48084486/AndroidManifest.xml:17:1-22:12
-INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-51:12
-INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-51:12
-INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-51:12
+MERGED from [com.android.support:documentfile:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/bb5b7bfd0a5f3befdc501f9d98b21882/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/de45d97a5c4974989bba8f4a22c3893e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/878d21822f679c23c4e05be46279510b/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/b8f2b566d88b48a0aec07b312678b7f9/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-52:12
+INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-52:12
+INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-52:12
 	package
 		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:3:5-39
 		INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml
 		INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml
-		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-51:12
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-52:12
 		INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml
-		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-51:12
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:1-52:12
 		INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:2:11-69
@@ -82,17 +83,19 @@ MERGED from [com.journeyapps:zxing-android-embedded:3.4.0] /home/devsawe/.gradle
 	android:name
 		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:8:22-62
 uses-permission#android.permission.VIBRATE
-ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:10:5-66
+ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:9:5-66
 	android:name
-		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:10:22-63
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:9:22-63
 application
-ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:12:5-49:19
-MERGED from [com.android.support:design:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/03c00d71e9e054113a141716bd3f4efd/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:design:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/03c00d71e9e054113a141716bd3f4efd/AndroidManifest.xml:22:5-20
+ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:11:5-50:19
 MERGED from [me.spark:submitbutton:1.0.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/submitbutton-1.0.1.aar/74439855fd81d9705de0dc44c57e1901/AndroidManifest.xml:11:5-15:19
 MERGED from [me.spark:submitbutton:1.0.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/submitbutton-1.0.1.aar/74439855fd81d9705de0dc44c57e1901/AndroidManifest.xml:11:5-15:19
 MERGED from [com.muddzdev:styleabletoast:1.0.7] /home/devsawe/.gradle/caches/transforms-1/files-1.1/styleabletoast-1.0.7.aar/fd0c4a6c818f63caee13240e8ae21b43/AndroidManifest.xml:11:5-15:19
 MERGED from [com.muddzdev:styleabletoast:1.0.7] /home/devsawe/.gradle/caches/transforms-1/files-1.1/styleabletoast-1.0.7.aar/fd0c4a6c818f63caee13240e8ae21b43/AndroidManifest.xml:11:5-15:19
+MERGED from [cn.hugeterry.coordinatortablayout:coordinatortablayout:1.2.2] /home/devsawe/.gradle/caches/transforms-1/files-1.1/coordinatortablayout-1.2.2.aar/215aa4f6610fdc3ee74cb21abc862e8f/AndroidManifest.xml:11:5-15:19
+MERGED from [cn.hugeterry.coordinatortablayout:coordinatortablayout:1.2.2] /home/devsawe/.gradle/caches/transforms-1/files-1.1/coordinatortablayout-1.2.2.aar/215aa4f6610fdc3ee74cb21abc862e8f/AndroidManifest.xml:11:5-15:19
+MERGED from [com.android.support:design:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/03c00d71e9e054113a141716bd3f4efd/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/03c00d71e9e054113a141716bd3f4efd/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/devsawe/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/dfa8992bf221c3f9ad0b6ba57116e74d/AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/devsawe/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/dfa8992bf221c3f9ad0b6ba57116e74d/AndroidManifest.xml:9:5-20
 MERGED from [com.journeyapps:zxing-android-embedded:3.4.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/zxing-android-embedded-3.4.0.aar/72fa31b0062c9346f74942f07233baeb/AndroidManifest.xml:45:5-53:19
@@ -114,17 +117,21 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] /home/devsawe/.grad
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/ee4e54a282133eef4a9134b4a7d00711/AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:17:9-35
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:16:9-35
 	android:label
-		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:15:9-41
-	android:roundIcon
-		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:16:9-46
-	android:icon
 		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:14:9-41
+	android:roundIcon
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:15:9-46
+	android:icon
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:13:9-41
 	android:allowBackup
-		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:13:9-35
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:12:9-35
 	android:theme
-		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:18:9-40
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:17:9-40
+activity#com.example.devsawe.duka.Activities.TabCordinator
+ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:18:9-71
+	android:name
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:18:19-59
 activity#com.example.devsawe.duka.Activities.MainActivity
 ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:19:9-28:20
 	android:label
@@ -150,13 +157,13 @@ ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/A
 	android:name
 		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:30:13-48
 activity#com.example.devsawe.duka.Activities.NewSuppliers
-ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:32:9-34:63
+ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:32:9-34:64
 	android:parentActivityName
 		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:34:13-61
 	android:name
 		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:33:13-52
 activity#com.example.devsawe.duka.Activities.NewCustomers
-ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:35:9-37:63
+ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:35:9-37:64
 	android:parentActivityName
 		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:37:13-61
 	android:name
@@ -174,35 +181,37 @@ ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/A
 	android:name
 		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:40:19-60
 activity#com.example.devsawe.duka.Activities.Display
-ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:41:9-42:65
+ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:41:9-43:66
 	android:parentActivityName
-		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:42:13-63
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:43:13-63
 	android:name
-		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:41:19-53
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:42:13-47
 activity#com.example.devsawe.duka.Activities.Make_sales
-ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:43:9-45:63
+ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:44:9-46:64
 	android:parentActivityName
-		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:45:13-61
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:46:13-61
 	android:name
-		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:44:13-50
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:45:13-50
 activity#com.example.devsawe.duka.Activities.Clients
-ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:46:9-48:63
+ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:47:9-49:64
 	android:parentActivityName
-		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:48:13-61
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:49:13-61
 	android:name
-		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:47:13-47
+		ADDED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml:48:13-47
 uses-sdk
 INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml
 INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml
-MERGED from [com.android.support:design:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/03c00d71e9e054113a141716bd3f4efd/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/03c00d71e9e054113a141716bd3f4efd/AndroidManifest.xml:20:5-44
 MERGED from [me.spark:submitbutton:1.0.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/submitbutton-1.0.1.aar/74439855fd81d9705de0dc44c57e1901/AndroidManifest.xml:7:5-9:41
 MERGED from [me.spark:submitbutton:1.0.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/submitbutton-1.0.1.aar/74439855fd81d9705de0dc44c57e1901/AndroidManifest.xml:7:5-9:41
 MERGED from [com.muddzdev:styleabletoast:1.0.7] /home/devsawe/.gradle/caches/transforms-1/files-1.1/styleabletoast-1.0.7.aar/fd0c4a6c818f63caee13240e8ae21b43/AndroidManifest.xml:7:5-9:41
 MERGED from [com.muddzdev:styleabletoast:1.0.7] /home/devsawe/.gradle/caches/transforms-1/files-1.1/styleabletoast-1.0.7.aar/fd0c4a6c818f63caee13240e8ae21b43/AndroidManifest.xml:7:5-9:41
 MERGED from [com.codemybrainsout.onboarding:onboarder:1.0.4] /home/devsawe/.gradle/caches/transforms-1/files-1.1/onboarder-1.0.4.aar/26a1252eb0041265b5eff24a080d32e0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.codemybrainsout.onboarding:onboarder:1.0.4] /home/devsawe/.gradle/caches/transforms-1/files-1.1/onboarder-1.0.4.aar/26a1252eb0041265b5eff24a080d32e0/AndroidManifest.xml:7:5-9:41
+MERGED from [cn.hugeterry.coordinatortablayout:coordinatortablayout:1.2.2] /home/devsawe/.gradle/caches/transforms-1/files-1.1/coordinatortablayout-1.2.2.aar/215aa4f6610fdc3ee74cb21abc862e8f/AndroidManifest.xml:7:5-9:41
+MERGED from [cn.hugeterry.coordinatortablayout:coordinatortablayout:1.2.2] /home/devsawe/.gradle/caches/transforms-1/files-1.1/coordinatortablayout-1.2.2.aar/215aa4f6610fdc3ee74cb21abc862e8f/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/03c00d71e9e054113a141716bd3f4efd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/03c00d71e9e054113a141716bd3f4efd/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/62af00a0b1ec5bd3b31aabde7171715d/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/62af00a0b1ec5bd3b31aabde7171715d/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /home/devsawe/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/dfa8992bf221c3f9ad0b6ba57116e74d/AndroidManifest.xml:5:5-7:41
@@ -233,10 +242,6 @@ MERGED from [com.android.support:support-core-ui:28.0.0] /home/devsawe/.gradle/c
 MERGED from [com.android.support:support-core-ui:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/5ca32115aed360dde25e9d245418d333/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-utils:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/d5ae2765380ef2c262326a5a04e861db/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-utils:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/d5ae2765380ef2c262326a5a04e861db/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/8606f2257784d182bfb4714c30b66c44/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/8606f2257784d182bfb4714c30b66c44/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/42bf8b357c3f623713f63c98888f3a7b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/42bf8b357c3f623713f63c98888f3a7b/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:viewpager:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/18f01f871295732cb4bdd06f2000a330/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:viewpager:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/18f01f871295732cb4bdd06f2000a330/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/e8b8208adce93d6a51449a0eba0cbd1f/AndroidManifest.xml:20:5-44
@@ -251,24 +256,20 @@ MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/devsawe/.gradl
 MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/149578ff6f7668514ac54d8534ff0ee7/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/e7c90221b8f83c8b7a5f6a2cd9b47abc/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/e7c90221b8f83c8b7a5f6a2cd9b47abc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/42bf8b357c3f623713f63c98888f3a7b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/42bf8b357c3f623713f63c98888f3a7b/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/80778d0d1c31d40df9cbfb98b909d2f1/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/80778d0d1c31d40df9cbfb98b909d2f1/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/ea6c87196e82ad250097f62c20059bef/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/ea6c87196e82ad250097f62c20059bef/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/8606f2257784d182bfb4714c30b66c44/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/8606f2257784d182bfb4714c30b66c44/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/ee4e54a282133eef4a9134b4a7d00711/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/ee4e54a282133eef4a9134b4a7d00711/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:versionedparcelable:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/cfa2edf4b89dd6c7625d4eeab3dca23a/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:versionedparcelable:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/cfa2edf4b89dd6c7625d4eeab3dca23a/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/8967bd173bcc3d50394e0d921f234feb/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/8967bd173bcc3d50394e0d921f234feb/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/bb5b7bfd0a5f3befdc501f9d98b21882/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/bb5b7bfd0a5f3befdc501f9d98b21882/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/de45d97a5c4974989bba8f4a22c3893e/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/de45d97a5c4974989bba8f4a22c3893e/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/878d21822f679c23c4e05be46279510b/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/878d21822f679c23c4e05be46279510b/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/b8f2b566d88b48a0aec07b312678b7f9/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/b8f2b566d88b48a0aec07b312678b7f9/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:interpolator:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/c5769b52ff756a0c8807411354e504ef/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:interpolator:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/c5769b52ff756a0c8807411354e504ef/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cursoradapter:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/19d1a7ebccd6104b0d94c387f39b10fc/AndroidManifest.xml:20:5-44
@@ -279,6 +280,14 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/devsawe/.gradle/c
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/ce1fa0ca9ce13517ccbe9d3510de4e9a/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/d1b1aac3a70677cc56b231fd48084486/AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/d1b1aac3a70677cc56b231fd48084486/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/bb5b7bfd0a5f3befdc501f9d98b21882/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/bb5b7bfd0a5f3befdc501f9d98b21882/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/de45d97a5c4974989bba8f4a22c3893e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/de45d97a5c4974989bba8f4a22c3893e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/878d21822f679c23c4e05be46279510b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/devsawe/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/878d21822f679c23c4e05be46279510b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/b8f2b566d88b48a0aec07b312678b7f9/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/devsawe/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/b8f2b566d88b48a0aec07b312678b7f9/AndroidManifest.xml:20:5-44
 INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml
 INJECTED from /home/devsawe/fourthyearprojectideas/stockmanager/Duka/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion

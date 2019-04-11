@@ -6,12 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -31,15 +29,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.devsawe.duka.Activities.Clients;
-import com.example.devsawe.duka.Activities.NewCustomers;
 import com.example.devsawe.duka.Controller;
-import com.example.devsawe.duka.Model.TransactionModel;
+import com.example.devsawe.duka.Model.BillingModel;
 import com.example.devsawe.duka.R;
 import com.example.devsawe.duka.database.DBHelper;
 import com.example.devsawe.duka.database.Database;
 import com.google.gson.Gson;
 
-import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -59,7 +55,7 @@ public class Cartfragment extends Fragment {
     FloatingActionButton fab_cart;
     Dialog dialog;
     EditText edtCharge;
-    TextView txtTransNo;
+    TextView txtTransNo,change;
     TextView txtBalance;
     RadioButton radioSend;
     RadioButton radioView;
@@ -185,6 +181,7 @@ public class Cartfragment extends Fragment {
         edtCharge = dialog.findViewById(R.id.cashin);
         radioSend = dialog.findViewById(R.id.radioSend);
         radioView = dialog.findViewById(R.id.radioView);
+        change = dialog.findViewById(R.id.change);
 
         r = dialog.findViewById(R.id.radio);
         r.clearCheck();
@@ -203,7 +200,8 @@ public class Cartfragment extends Fragment {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
                 double newTotal = total - Double.valueOf(s.toString());
-                txtBalance.setText(String.valueOf(newTotal));
+               // txtBalance.setText(String.valueOf(newTotal));
+                    change.setText(String.valueOf(newTotal));
             } catch (Exception m) {
             }
             }
@@ -236,15 +234,15 @@ public class Cartfragment extends Fragment {
                         String timeStamp = simpleDateFormat.format(date);
 
                         //inserting into transactions table
-                        TransactionModel transactionsdata = new TransactionModel();
-                        transactionsdata.setTransactiondate(timeStamp);
-                        transactionsdata.setTransactionitems(data);
-                        transactionsdata.setTransactiontotal(String.valueOf(dbhelper.sumOfTotalPricesOfItemsInCart()));
-                        //transactionsdata.setTransactionBptotal(String.valueOf(dbhelper.sumOfTotalBpPricesOfItemsInCart()));
-                        //transactionsdata.setTransactionSellingprice(String.valueOf(dbhelper.sumofTotalSpOfItemsInCart()));
-                        transactionsdata.setTransactioncashin(String.valueOf(paidAmount));
+                        BillingModel billing_data = new BillingModel();
+                        billing_data.setBillingdate(timeStamp);
+                        billing_data.setBillingitems(data);
+                        billing_data.setBillingtotal(String.valueOf(dbhelper.sumOfTotalPricesOfItemsInCart()));
+                        billing_data.setBillingBptotal(String.valueOf(dbhelper.sumOfTotalBpPricesOfItemsInCart()));
+                        billing_data.setBillingSellingprice(String.valueOf(dbhelper.sumofTotalSpOfItemsInCart()));
+                        billing_data.setBillingcashin(String.valueOf(paidAmount));
 
-                        if (dbhelper.InsertTransaction(transactionsdata)) {
+                        if (dbhelper.InsertBilling(billing_data)) {
 
                             controller.toast("Transaction complete", getContext(), R.drawable.navicon);
                             Log.d(LOG_TAG, data);
