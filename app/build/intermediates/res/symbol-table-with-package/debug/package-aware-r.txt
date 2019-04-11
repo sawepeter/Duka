@@ -11,8 +11,6 @@ anim abc_slide_out_bottom
 anim abc_slide_out_top
 anim abc_tooltip_enter
 anim abc_tooltip_exit
-anim anim_dismiss
-anim anim_show
 anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
@@ -168,19 +166,24 @@ attr collapseContentDescription
 attr collapseIcon
 attr collapsedTitleGravity
 attr collapsedTitleTextAppearance
-attr collapsingToolbarLayoutHeight
 attr color
 attr colorAccent
 attr colorBackgroundFloating
+attr colorBottomText
+attr colorBottomTextSelected
 attr colorButtonNormal
 attr colorControlActivated
 attr colorControlHighlight
 attr colorControlNormal
 attr colorError
+attr colorMiddleText
+attr colorMiddleTextSelected
 attr colorPrimary
 attr colorPrimaryDark
 attr colorSecondary
 attr colorSwitchThumbNormal
+attr colorTopText
+attr colorTopTextSelected
 attr commitIcon
 attr constraintSet
 attr constraint_referenced_ids
@@ -443,6 +446,8 @@ attr secondInputTip
 attr seekBarStyle
 attr selectableItemBackground
 attr selectableItemBackgroundBorderless
+attr selectedDateBackground
+attr selectorColor
 attr shouldScaleToFill
 attr showAsAction
 attr showDividers
@@ -452,6 +457,9 @@ attr showTitle
 attr singleChoiceItemLayout
 attr singleLine
 attr singleSelection
+attr sizeBottomText
+attr sizeMiddleText
+attr sizeTopText
 attr snackbarButtonStyle
 attr snackbarStyle
 attr spanCount
@@ -536,7 +544,9 @@ attr textAppearanceSubtitle1
 attr textAppearanceSubtitle2
 attr textColor
 attr textColorAlertDialogListItem
+attr textColorNormal
 attr textColorSearchUrl
+attr textColorSelected
 attr textEndPadding
 attr textInputStyle
 attr textStartPadding
@@ -1108,7 +1118,6 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable addgood
-drawable appbarlayout_elevated
 drawable avatar
 drawable avd_hide_password
 drawable avd_show_password
@@ -1146,12 +1155,12 @@ drawable gridimg
 drawable ic_add_a_photo_lime_100_24dp
 drawable ic_add_circle_lime_100_24dp
 drawable ic_add_to_queue_black_24dp
-drawable ic_arrow_white_24dp
 drawable ic_call_lime_100_24dp
 drawable ic_camera_alt_lime_100_24dp
 drawable ic_check_black_24dp
 drawable ic_check_bold_24dp
 drawable ic_check_circle_light_green_a100_24dp
+drawable ic_circle_white_8dp
 drawable ic_date_range_black_24dp
 drawable ic_delete_black_24dp
 drawable ic_done_light_green_a100_24dp
@@ -1281,6 +1290,7 @@ id adt_supplier_product
 id alertTitle
 id all
 id always
+id appBar
 id async
 id auto
 id available_stock
@@ -1310,6 +1320,7 @@ id button_charge
 id button_clear
 id buttons
 id buttons_layout
+id calendarView
 id cancel_action
 id cart_quantity
 id cart_total
@@ -1333,7 +1344,6 @@ id circle_indicator_view
 id clip_horizontal
 id clip_vertical
 id collapseActionView
-id collapsingtoolbarlayout
 id container
 id content
 id contentPanel
@@ -1406,6 +1416,12 @@ id goods_image
 id grandtotal
 id group_divider
 id groups
+id hc_events_recyclerView
+id hc_layoutContent
+id hc_selector
+id hc_text_bottom
+id hc_text_middle
+id hc_text_top
 id home
 id homeAsUp
 id icon
@@ -1590,7 +1606,6 @@ id submenuarrow
 id submit_area
 id subtotal
 id supplier_count
-id tabLayout
 id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager
@@ -1713,12 +1728,12 @@ layout activity_barcode_scanner
 layout activity_display
 layout activity_finger_print
 layout activity_good_sales
+layout activity_horizontal_calendar
 layout activity_main
 layout activity_make_sales
 layout activity_new_customers
 layout activity_new_goods
 layout activity_new_suppliers
-layout activity_tab_cordinator
 layout app_bar_main
 layout avatars_dialog
 layout cart_item
@@ -1753,6 +1768,8 @@ layout fragment_sell_goods
 layout fragment_suppliers
 layout fragment_transactions
 layout fragmentgoods
+layout hc_item_calendar
+layout hc_item_calendar_old
 layout layout_passcode_view
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
@@ -1778,7 +1795,6 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 layout transaction_item
-layout view_coordinatortablayout
 layout zxing_barcode_scanner
 layout zxing_capture
 menu activity_main_drawer
@@ -1840,7 +1856,6 @@ string character_counter_pattern
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string hide_bottom_view_on_scroll_behavior
-string imageview_description
 string lock_input_again
 string lock_input_not_match
 string mtrl_chip_close_icon_content_description
@@ -2094,8 +2109,6 @@ style RtlOverlay_Widget_AppCompat_Search_DropDown_Text
 style RtlOverlay_Widget_AppCompat_SearchView_MagIcon
 style RtlUnderlay_Widget_AppCompat_ActionButton
 style RtlUnderlay_Widget_AppCompat_ActionButton_Overflow
-style TabLayoutStyle
-style TabTextAppearance
 style TextAppearance_AppCompat
 style TextAppearance_AppCompat_Body1
 style TextAppearance_AppCompat_Body2
@@ -2405,7 +2418,6 @@ styleable ConstraintLayout_placeholder content emptyVisibility
 styleable ConstraintSet android_orientation android_id android_visibility android_layout_width android_layout_height android_layout_marginLeft android_layout_marginTop android_layout_marginRight android_layout_marginBottom android_maxWidth android_maxHeight android_minWidth android_minHeight android_alpha android_transformPivotX android_transformPivotY android_translationX android_translationY android_scaleX android_scaleY android_rotation android_rotationX android_rotationY android_layout_marginStart android_layout_marginEnd android_translationZ android_elevation barrierAllowsGoneWidgets barrierDirection chainUseRtl constraint_referenced_ids layout_constrainedHeight layout_constrainedWidth layout_constraintBaseline_creator layout_constraintBaseline_toBaselineOf layout_constraintBottom_creator layout_constraintBottom_toBottomOf layout_constraintBottom_toTopOf layout_constraintCircle layout_constraintCircleAngle layout_constraintCircleRadius layout_constraintDimensionRatio layout_constraintEnd_toEndOf layout_constraintEnd_toStartOf layout_constraintGuide_begin layout_constraintGuide_end layout_constraintGuide_percent layout_constraintHeight_default layout_constraintHeight_max layout_constraintHeight_min layout_constraintHeight_percent layout_constraintHorizontal_bias layout_constraintHorizontal_chainStyle layout_constraintHorizontal_weight layout_constraintLeft_creator layout_constraintLeft_toLeftOf layout_constraintLeft_toRightOf layout_constraintRight_creator layout_constraintRight_toLeftOf layout_constraintRight_toRightOf layout_constraintStart_toEndOf layout_constraintStart_toStartOf layout_constraintTop_creator layout_constraintTop_toBottomOf layout_constraintTop_toTopOf layout_constraintVertical_bias layout_constraintVertical_chainStyle layout_constraintVertical_weight layout_constraintWidth_default layout_constraintWidth_max layout_constraintWidth_min layout_constraintWidth_percent layout_editor_absoluteX layout_editor_absoluteY layout_goneMarginBottom layout_goneMarginEnd layout_goneMarginLeft layout_goneMarginRight layout_goneMarginStart layout_goneMarginTop
 styleable CoordinatorLayout keylines statusBarBackground
 styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_anchorGravity layout_behavior layout_dodgeInsetEdges layout_insetEdge layout_keyline
-styleable CoordinatorTabLayout collapsingToolbarLayoutHeight contentScrim tabIndicatorColor tabTextColor
 styleable DesignTheme bottomSheetDialogTheme bottomSheetStyle
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness
 styleable FloatingActionButton backgroundTint backgroundTintMode borderWidth elevation fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor showMotionSpec useCompatPadding
@@ -2416,6 +2428,7 @@ styleable FontFamilyFont android_font android_fontWeight android_fontStyle andro
 styleable ForegroundLinearLayout android_foreground android_foregroundGravity foregroundInsidePadding
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
+styleable HorizontalCalendarView colorBottomText colorBottomTextSelected colorMiddleText colorMiddleTextSelected colorTopText colorTopTextSelected selectedDateBackground selectorColor sizeBottomText sizeMiddleText sizeTopText textColorNormal textColorSelected
 styleable LinearConstraintLayout android_orientation
 styleable LinearLayoutCompat android_gravity android_orientation android_baselineAligned android_baselineAlignedChildIndex android_weightSum divider dividerPadding measureWithLargestChild showDividers
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight
