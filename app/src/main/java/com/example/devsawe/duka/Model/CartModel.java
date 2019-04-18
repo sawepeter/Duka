@@ -6,15 +6,17 @@ public class CartModel {
     private String cartname;
     private String cartquantity;
     private String carttotal;
+    private String cartsellingprice;
 
     public CartModel() {
     }
 
-    public CartModel(String cartdate, String cartname, String cartquantity, String carttotal) {
+    public CartModel(String cartdate, String cartname, String cartquantity, String carttotal, String cartsellingprice) {
         this.cartdate = cartdate;
         this.cartname = cartname;
         this.cartquantity = cartquantity;
         this.carttotal = carttotal;
+        this.cartsellingprice = cartsellingprice;
     }
 
     public String getCartdate() {
@@ -47,6 +49,14 @@ public class CartModel {
 
     public void setCarttotal(String carttotal) {
         this.carttotal = carttotal;
+    }
+
+    public String getCartsellingprice() {
+        return cartsellingprice;
+    }
+
+    public void setCartsellingprice(String cartsellingprice) {
+        this.cartsellingprice = cartsellingprice;
     }
 }
 

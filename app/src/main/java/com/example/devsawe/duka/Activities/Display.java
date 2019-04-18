@@ -47,7 +47,7 @@ public class Display extends AppCompatActivity {
         //loadsaleamount();
         //users();
 
-        list_customer = findViewById(R.id.list_customer);
+       // list_customer = findViewById(R.id.list_customer);
         getCustomers();
     }
 
@@ -129,7 +129,7 @@ public class Display extends AppCompatActivity {
             int to [] = {R.id.customer_name,R.id.customer_phone};
 
             display = new SimpleCursorAdapter(getApplicationContext(),R.layout.custom_customers,customers,from,to);
-           list_customer = findViewById(R.id.list_customer);
+         //  list_customer = findViewById(R.id.list_customer);
             list_customer.setAdapter(display);
             list_customer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.devsawe.duka.Model.CartModel;
-import com.example.devsawe.duka.Model.TransactionModel;
+import com.example.devsawe.duka.Model.BillingModel;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -40,7 +40,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + Database.CUSTOMER_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + Database.SALES_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " +Database.CART_TABLE_NAME);
-        db.execSQL("DROP TABLE IF EXISTS " +Database.TRANSACTION_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " +Database.BILLING_TABLE_NAME);
 
         onCreate(db);
 
@@ -139,28 +139,28 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
        //transaction table
-        String transaction_table_sql = "create table " + Database.TRANSACTION_TABLE_NAME + "(" +
-                Database.ROW_ID + "INTEGER primary key autoincrement," +
-                Database.ID_TRANSACTION + " TEXT," +
-                Database.TRANSACTIONS_DATE  + " TEXT," +
-                Database.TRANSACTION_ITEMS  + "VARCHAR," +
-                Database.TRANSACTION_TOTAL  + " TEXT," +
-                Database.TRANSACTION_SELLINGPRICE  + " TEXT," +
-                Database.TRANSACTION_BUYINGPRICE  + " TEXT," +
-                Database.TRANSACTION_CASH_IN  + " TEXT," +
-                Database.TRANSACTION_TIME  + " TEXT)";
+        String billing_table_sql = "create table " + Database.BILLING_TABLE_NAME + "( " +
+                Database.ROW_ID + " INTEGER primary key autoincrement," +
+                Database.BILLING_ID + " TEXT," +
+                Database.BILLING_DATE  + " TEXT," +
+                Database.BILLING_ITEMS  + " TEXT," + //spacing in sqlite database table creation is of great importance
+                Database.BILLING_TOTAL  + " TEXT," +
+                Database.BILLING_SELLINGPRICE  + " TEXT," +
+                Database.BILLING_BUYINGPRICE  + " TEXT," +
+                Database.BILLING_CASH_IN  + " TEXT," +
+                Database.BILLING_TIME  + " TEXT)";
 
 
-        String Defaulttransaction = "INSERT INTO " + Database.TRANSACTION_TABLE_NAME + " ("
+        String Defaultbilling = "INSERT INTO  " + Database.BILLING_TABLE_NAME + " ("
                 + Database.ROW_ID + ", "
-                + Database.ID_TRANSACTION + ", "
-                + Database.TRANSACTIONS_DATE + ", "
-                + Database.TRANSACTION_ITEMS + ", "
-                + Database.TRANSACTION_TOTAL + ", "
-                + Database.TRANSACTION_SELLINGPRICE + ", "
-                + Database.TRANSACTION_BUYINGPRICE + ", "
-                + Database.TRANSACTION_CASH_IN + ", "
-                + Database.TRANSACTION_TIME + ") Values ('1', '1214', '18-02-2019', 'Onions','30','Ksh: 5000',' Ksh 50','ksh 100','10:00 AM')";
+                + Database.BILLING_ID + ", "
+                + Database.BILLING_DATE + ", "
+                + Database.BILLING_ITEMS + ", "
+                + Database.BILLING_TOTAL + ", "
+                + Database.BILLING_SELLINGPRICE + ", "
+                + Database.BILLING_BUYINGPRICE + ", "
+                + Database.BILLING_CASH_IN + ", "
+                + Database.BILLING_TIME + ") Values ('1', '1214', '18-02-2019', 'Onions','30','Ksh: 5000',' Ksh 50','ksh 100','10:00 AM')";
 
         //sales  table
         String cart_table_sql = "create table " + Database.CART_TABLE_NAME + "( " +
@@ -189,7 +189,7 @@ public class DBHelper extends SQLiteOpenHelper {
             database.execSQL(customer_table_sql);
             database.execSQL(sale_table_sql);
             database.execSQL(cart_table_sql);
-            database.execSQL(transaction_table_sql);
+            database.execSQL(billing_table_sql);
 
             //loading the default information
             database.execSQL(DefaultUser);
@@ -197,7 +197,7 @@ public class DBHelper extends SQLiteOpenHelper {
             database.execSQL(DefaultCustomer);
             database.execSQL(DefaultCart);
             database.execSQL(DefaultSales);
-            database.execSQL(Defaulttransaction);
+            //database.execSQL(Defaultbilling);
 
         }catch (Exception e){
             Log.d("Duka.db", "Error in DBHelper.onCreate() : " + e.getMessage());
@@ -291,24 +291,25 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.insert(Database.CART_TABLE_NAME,null,contentValues);
     }
 
-    public boolean InsertTransaction(TransactionModel model){
+    public boolean InsertBilling(BillingModel model){
 
         boolean success = false;
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
 
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(Database.TRANSACTIONS_DATE,model.getTransactiondate());
-        contentValues.put(Database.TRANSACTION_ITEMS,model.getTransactionitems());
-        contentValues.put(Database.TRANSACTION_TOTAL,model.getTransactiontotal());
-        contentValues.put(Database.TRANSACTION_SELLINGPRICE,model.getTransactionSellingprice());
-        contentValues.put(Database.TRANSACTION_BUYINGPRICE,model.getTransactionBptotal());
-        contentValues.put(Database.TRANSACTION_CASH_IN,model.getTransactioncashin());
-        contentValues.put(Database.TRANSACTION_TIME,dateFormat.format(date));
-        if (db.insert(Database.TRANSACTION_TABLE_NAME,null,contentValues)>= 1) {
+        contentValues.put(Database.BILLING_DATE,model.getBillingdate());
+        contentValues.put(Database.BILLING_ITEMS,model.getBillingitems());
+        contentValues.put(Database.BILLING_TOTAL,model.getBillingtotal());
+        contentValues.put(Database.BILLING_SELLINGPRICE,model.getBillingSellingprice());
+        contentValues.put(Database.BILLING_BUYINGPRICE,model.getBillingBptotal());
+        contentValues.put(Database.BILLING_CASH_IN,model.getBillingcashin());
+        contentValues.put(Database.BILLING_TIME,dateFormat.format(date));
+
+        if (db.insert("tablebills",  null, contentValues) >= 1) {
             success = true;
        }
         db.close();

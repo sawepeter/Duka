@@ -9,7 +9,7 @@ public class Database {
     public static final String CUSTOMER_ID = "custommerid";
     public static final String SALE_ID= "saleid";
     public static final String CART_ITEM_ID = "cartitemid";
-    public static final String ID_TRANSACTION = "transactionid";
+    public static final String BILLING_ID = "billingid";
 
 
     //table goods
@@ -69,15 +69,15 @@ public class Database {
 
 
     //table transactions
-    public static final String TRANSACTION_TABLE_NAME = "table_transactions";
+    public static final String BILLING_TABLE_NAME = "tablebills";
 
-    public static final String TRANSACTIONS_DATE = "transactiondate";
-    public static final String TRANSACTION_ITEMS = "transactionitems";//the transaction will add the json string of cart items
-    public static final String TRANSACTION_TOTAL = "transactiontotal";
-    public static final String TRANSACTION_SELLINGPRICE = "transactionsellingprice";
-    public static final String TRANSACTION_BUYINGPRICE = "transactionbuyingprice";
-    public static final String TRANSACTION_CASH_IN = "transactioncashin";
-    public static final String TRANSACTION_TIME = "transactiontime";
+    public static final String BILLING_DATE = "billingdate";
+    public static final String BILLING_ITEMS = "billingitems";//the transaction will add the json string of cart items
+    public static final String BILLING_TOTAL = "billingtotal";
+    public static final String BILLING_SELLINGPRICE = "billingsellingprice";
+    public static final String BILLING_BUYINGPRICE = "billingbuyingprice";
+    public static final String BILLING_CASH_IN = "billingcashin";
+    public static final String BILLING_TIME = "billingtime";
 
 
 

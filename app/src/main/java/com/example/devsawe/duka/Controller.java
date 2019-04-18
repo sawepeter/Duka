@@ -16,11 +16,11 @@ public class Controller {
         st.setTextColor(context.getResources().getColor(R.color.whitetext));
         try {
             st.setIcon(icon);
-            st.setDuration(Toast.LENGTH_LONG);
+            st.setDuration(Toast.LENGTH_SHORT);
             st.setMaxAlpha();
             st.show();
         } catch (Exception m) {
-            Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
         }
     }
 

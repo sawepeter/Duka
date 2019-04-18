@@ -114,12 +114,7 @@ public class Clients extends AppCompatActivity {
                         } else if(success){
                             Toast.makeText(getApplicationContext(), "Good successfully !!!!", Toast.LENGTH_SHORT).show();
                             controller.toast("Good successfully added to cart ",Clients.this,R.drawable.navicon);
-
-
-
-
                             finish();
-
 
                         }else {
                             Toast.makeText(getApplicationContext(), "Good failed to save !!!!", Toast.LENGTH_SHORT).show();
@@ -157,6 +152,7 @@ public class Clients extends AppCompatActivity {
 
            dialogBuilder.create();
            dialogBuilder.show();
+
 
         }
 

@@ -64,29 +64,10 @@
         </android.support.v7.widget.RecyclerView>-->
 
         <ListView
-            android:id="@+id/list_customer"
+            android:id="@+id/list_transaction"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="2dp"/>
-
-
-        <LinearLayout
-            android:id="@+id/empty_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <TextView
-                android:id="@+id/empty_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:text="No Items To Display  " />
-
-
-        </LinearLayout>
 
 
     </LinearLayout>
