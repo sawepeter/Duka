@@ -78,6 +78,7 @@ public class Transactions extends Fragment {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     //String selectedFromList = (list_view_customers.getItemAtPosition(position).toString());
                     Intent intent = new Intent(getActivity(), TransactionDetails.class);
+                    intent.putExtra("dataposition", position);
                     startActivity(intent);
                     Toast.makeText(context, "You clicked" + position, Toast.LENGTH_SHORT).show();
                 }

@@ -1,6 +1,8 @@
 package com.example.devsawe.duka.Model;
 
-public class BillingModel {
+import java.io.Serializable;
+
+public class BillingModel implements Serializable {
     private String billingdate;
     private String billingitems;
     private String billingtotal;

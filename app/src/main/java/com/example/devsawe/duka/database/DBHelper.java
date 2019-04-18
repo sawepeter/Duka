@@ -316,6 +316,35 @@ public class DBHelper extends SQLiteOpenHelper {
          return success;
     }
 
+    public ArrayList<BillingModel> getAllTransactions(String trans_id, String date) {
+        SQLiteDatabase db = dbHandler.getReadableDatabase();
+        ArrayList<TransactionsPojo> data = new ArrayList<>();
+        String QUERY = "SELECT * FROM  mduka_transactions  WHERE transaction_id LIKE '%" + trans_id + "%' AND transaction_date LIKE '%" + date + "%' ORDER BY transaction_id DESC ";
+        Cursor cursor = db.rawQuery(QUERY, null);
+        if (!cursor.isLast()) {
+            while (cursor.moveToNext()) {
+                TransactionsPojo pojo = new TransactionsPojo();
+                pojo.setTransaction_id(cursor.getInt(0));
+                pojo.setTransaction_date(cursor.getString(1));
+                pojo.setTransaction_items(cursor.getString(2));
+                pojo.setTransaction_total_sp(cursor.getString(3));
+                pojo.setTransaction_total_bp(cursor.getString(4));
+                pojo.setTransaction_quantity(cursor.getString(5));
+                pojo.setTransaction_time(cursor.getString(6));
+                data.add(pojo);
+            }
+        }
+        db.close();
+        // looping through all rows and adding to list
+        if (cursor == null) {
+            return null;
+        } else if (!cursor.moveToFirst()) {
+            cursor.close();
+            return null;
+        }
+        return data;
+    }
+
    public void UpdateCart(String cartitemname,String cartitemquantity,String cartitem,String cartitemtotal){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
