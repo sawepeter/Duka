@@ -169,21 +169,15 @@ attr collapsedTitleTextAppearance
 attr color
 attr colorAccent
 attr colorBackgroundFloating
-attr colorBottomText
-attr colorBottomTextSelected
 attr colorButtonNormal
 attr colorControlActivated
 attr colorControlHighlight
 attr colorControlNormal
 attr colorError
-attr colorMiddleText
-attr colorMiddleTextSelected
 attr colorPrimary
 attr colorPrimaryDark
 attr colorSecondary
 attr colorSwitchThumbNormal
-attr colorTopText
-attr colorTopTextSelected
 attr commitIcon
 attr constraintSet
 attr constraint_referenced_ids
@@ -446,8 +440,6 @@ attr secondInputTip
 attr seekBarStyle
 attr selectableItemBackground
 attr selectableItemBackgroundBorderless
-attr selectedDateBackground
-attr selectorColor
 attr shouldScaleToFill
 attr showAsAction
 attr showDividers
@@ -457,9 +449,6 @@ attr showTitle
 attr singleChoiceItemLayout
 attr singleLine
 attr singleSelection
-attr sizeBottomText
-attr sizeMiddleText
-attr sizeTopText
 attr snackbarButtonStyle
 attr snackbarStyle
 attr spanCount
@@ -544,9 +533,7 @@ attr textAppearanceSubtitle1
 attr textAppearanceSubtitle2
 attr textColor
 attr textColorAlertDialogListItem
-attr textColorNormal
 attr textColorSearchUrl
-attr textColorSelected
 attr textEndPadding
 attr textInputStyle
 attr textStartPadding
@@ -1160,7 +1147,6 @@ drawable ic_camera_alt_lime_100_24dp
 drawable ic_check_black_24dp
 drawable ic_check_bold_24dp
 drawable ic_check_circle_light_green_a100_24dp
-drawable ic_circle_white_8dp
 drawable ic_date_range_black_24dp
 drawable ic_delete_black_24dp
 drawable ic_done_light_green_a100_24dp
@@ -1290,7 +1276,6 @@ id adt_supplier_product
 id alertTitle
 id all
 id always
-id appBar
 id async
 id auto
 id available_stock
@@ -1313,6 +1298,8 @@ id btn_finish
 id btn_list
 id btn_remove
 id btn_reports
+id btn_reproduce
+id btn_reverse
 id btn_skip
 id btn_tablayout
 id buttonPanel
@@ -1320,7 +1307,6 @@ id button_charge
 id button_clear
 id buttons
 id buttons_layout
-id calendarView
 id cancel_action
 id cart_quantity
 id cart_total
@@ -1390,7 +1376,6 @@ id edt_supplier_name
 id edtbarcode
 id edtgoodname
 id email_of_supplier
-id empty_layout
 id empty_view
 id end
 id end_padder
@@ -1416,12 +1401,6 @@ id goods_image
 id grandtotal
 id group_divider
 id groups
-id hc_events_recyclerView
-id hc_layoutContent
-id hc_selector
-id hc_text_bottom
-id hc_text_middle
-id hc_text_top
 id home
 id homeAsUp
 id icon
@@ -1459,10 +1438,10 @@ id line1
 id line3
 id listMode
 id list_cart
-id list_customer
 id list_item
 id list_product
 id list_sell
+id list_transaction
 id list_view_customers
 id list_view_sales
 id list_view_suppliers
@@ -1485,10 +1464,10 @@ id nav_addgood
 id nav_cart
 id nav_customers
 id nav_dashboard
-id nav_profit
 id nav_reports
 id nav_sales
 id nav_suppliers
+id nav_transactions
 id nav_view
 id navigation_header_container
 id navigation_layout
@@ -1543,6 +1522,7 @@ id radio_credit
 id radio_mpesa
 id radiocash
 id radiompesa
+id recyclerView
 id right
 id right_icon
 id right_side
@@ -1651,6 +1631,7 @@ id txt_profit
 id txt_sales
 id txt_selling_price
 id txt_toast
+id txt_total
 id txt_transaction_id
 id uniform
 id unlabeled
@@ -1728,16 +1709,17 @@ layout activity_barcode_scanner
 layout activity_display
 layout activity_finger_print
 layout activity_good_sales
-layout activity_horizontal_calendar
 layout activity_main
 layout activity_make_sales
 layout activity_new_customers
 layout activity_new_goods
 layout activity_new_suppliers
+layout activity_transaction_details
 layout app_bar_main
 layout avatars_dialog
 layout cart_item
 layout content_main
+layout content_transaction_details
 layout custom_customers
 layout custom_dialog
 layout custom_goods_layout
@@ -1768,8 +1750,6 @@ layout fragment_sell_goods
 layout fragment_suppliers
 layout fragment_transactions
 layout fragmentgoods
-layout hc_item_calendar
-layout hc_item_calendar_old
 layout layout_passcode_view
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
@@ -2428,7 +2408,6 @@ styleable FontFamilyFont android_font android_fontWeight android_fontStyle andro
 styleable ForegroundLinearLayout android_foreground android_foregroundGravity foregroundInsidePadding
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
-styleable HorizontalCalendarView colorBottomText colorBottomTextSelected colorMiddleText colorMiddleTextSelected colorTopText colorTopTextSelected selectedDateBackground selectorColor sizeBottomText sizeMiddleText sizeTopText textColorNormal textColorSelected
 styleable LinearConstraintLayout android_orientation
 styleable LinearLayoutCompat android_gravity android_orientation android_baselineAligned android_baselineAlignedChildIndex android_weightSum divider dividerPadding measureWithLargestChild showDividers
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight

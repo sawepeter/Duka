@@ -197,7 +197,7 @@ public class DBHelper extends SQLiteOpenHelper {
             database.execSQL(DefaultCustomer);
             database.execSQL(DefaultCart);
             database.execSQL(DefaultSales);
-          database.execSQL(Defaultbilling);
+            //database.execSQL(Defaultbilling);
 
         }catch (Exception e){
             Log.d("Duka.db", "Error in DBHelper.onCreate() : " + e.getMessage());

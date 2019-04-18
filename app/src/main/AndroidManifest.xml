@@ -15,7 +15,8 @@
         android:roundIcon="@drawable/navicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.HorizontalCalendar"></activity>
+        <activity android:name=".Activities.TransactionDetails"></activity>
+        <activity android:name=".Activities.HorizontalCalendar" />
         <activity
             android:name=".Activities.MainActivity"
             android:label="@string/app_name"

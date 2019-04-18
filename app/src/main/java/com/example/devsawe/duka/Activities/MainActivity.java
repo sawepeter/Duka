@@ -17,7 +17,7 @@ import com.example.devsawe.duka.Fragments.Cartfragment;
 import com.example.devsawe.duka.Fragments.Goods;
 import com.example.devsawe.duka.Fragments.Customers;
 import com.example.devsawe.duka.Fragments.Dashboard;
-import com.example.devsawe.duka.Fragments.Profit;
+import com.example.devsawe.duka.Fragments.Transactions;
 import com.example.devsawe.duka.Fragments.Reports;
 import com.example.devsawe.duka.Fragments.SellGoods;
 import com.example.devsawe.duka.Fragments.Suppliers;
@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         controller = new Controller();
-
-
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -108,8 +106,8 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_dashboard:
                 fragment = new Dashboard();
                 break;
-            case R.id.nav_profit:
-                fragment = new Profit();
+            case R.id.nav_transactions:
+                fragment = new Transactions();
                 break;
             case R.id.nav_cart:
                 fragment = new Cartfragment();

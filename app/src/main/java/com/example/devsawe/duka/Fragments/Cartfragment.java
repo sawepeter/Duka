@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -29,15 +31,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.devsawe.duka.Activities.Clients;
+import com.example.devsawe.duka.Activities.Receipt;
 import com.example.devsawe.duka.Controller;
 import com.example.devsawe.duka.Model.BillingModel;
+import com.example.devsawe.duka.Model.CartModel;
 import com.example.devsawe.duka.R;
 import com.example.devsawe.duka.database.DBHelper;
 import com.example.devsawe.duka.database.Database;
 import com.google.gson.Gson;
+import com.itextpdf.text.DocumentException;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import q.rorbin.badgeview.QBadgeView;
@@ -62,9 +70,8 @@ public class Cartfragment extends Fragment {
     RadioGroup r;
     View rootView;
     ProgressDialog progressDialog;
-
     DecimalFormat formatter;
-     int TransNo=1;
+    ArrayList<CartModel> cartItemsmodel;
 
     @Nullable
     @Override
@@ -76,9 +83,8 @@ public class Cartfragment extends Fragment {
         formatter=new DecimalFormat("0000");
         txtTransNo = rootView.findViewById(R.id.transno);
 
-        txtTransNo.setText(formatter.format(TransNo));
+       // txtTransNo.setText(formatter.format(TransNo));
         controller = new Controller();
-
 
        fab_cart = rootView.findViewById(R.id.fab_cart);
         fab_cart.setOnClickListener(new View.OnClickListener() {
@@ -133,7 +139,6 @@ public class Cartfragment extends Fragment {
         super.onCreateOptionsMenu(menu,inflater);
     }
 
-
     public void setCharge() {
         buttonCharge.setText("");
         buttonCharge.setText("CHARGE " + String.valueOf(dbhelper.sumOfTotalPricesOfItemsInCart()));
@@ -170,7 +175,6 @@ public class Cartfragment extends Fragment {
         });
     }
 
-
     public void charge(){
         //controller.toast("we will checkout soon!!!",getActivity(),R.drawable.navicon);
         dialog = new Dialog(context);
@@ -190,6 +194,9 @@ public class Cartfragment extends Fragment {
         final double total = dbhelper.sumOfTotalPricesOfItemsInCart();
 
         txtBalance.setText(String.valueOf(total));
+
+        cartItemsmodel = new ArrayList<>();
+        cartItemsmodel = dbhelper.getAllItemsInCart();
         edtCharge.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -245,6 +252,8 @@ public class Cartfragment extends Fragment {
                         if (dbhelper.InsertBilling(billing_data)) {
 
                             controller.toast("Transaction complete", getContext(), R.drawable.navicon);
+
+                            dbhelper.clearCart();
                             Log.d(LOG_TAG, data);
                             if (radioSend.isChecked()) {
                                 //shareReciept(myFile);
@@ -254,12 +263,14 @@ public class Cartfragment extends Fragment {
                                 progressDialog.setIndeterminate(true);
                                 progressDialog.setCancelable(false);
                                 progressDialog.show();
-
                                 //Back b = new Back(0, stockItemsPojos, dbhelper.sumOfTotalPricesOfItemsInCart(), paidAmount, "My Shop\n0725632415\nsawepeter6@@gmail.com", "Sawe Peter", "8845");
                                // b.execute();
                                 //dialog.dismiss();
+
+                               Receiptgenerator receiptgenerator = new Receiptgenerator(0,cartItemsmodel, dbhelper.sumOfTotalPricesOfItemsInCart(), paidAmount, "Sawe Duka\n0725632415\nsawepeter6@gmail.com", "Sawe Peter", "C026-01-1177/2016");
+                               receiptgenerator.execute();
                             } else if (radioView.isChecked()) {
-                                dialog.dismiss();
+                                //dialog.dismiss();
                                 progressDialog = new ProgressDialog(getActivity());
                                 progressDialog.setMessage("Generating Receipt ...");
                                 progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -267,41 +278,64 @@ public class Cartfragment extends Fragment {
                                 progressDialog.setCancelable(false);
                                 progressDialog.show();
                                 //viewPdf(myFile);
+
                                 //Back b = new Back(1, stockItemsPojos, dbhelper.sumOfTotalPricesOfItemsInCart(), paidAmount, "My Shop\n0725632415\nsawepeter6@@gmail.com", "Sawe Peter", "8845");
                                 //b.execute();
+
+                                Receiptgenerator receiptgenerator = new Receiptgenerator(0,cartItemsmodel, dbhelper.sumOfTotalPricesOfItemsInCart(), paidAmount, "Sawe Duka\n0725632415\nsawepeter6@gmail.com", "Sawe Peter", "C026-01-1177/2016");
+                                receiptgenerator.execute();
                                 //dialog.dismiss();
                             } else {
                                 dialog.dismiss();
                             }
-
                             if (dbhelper.clearCart()) {
                                 setCharge();
                                 //setView(true, getContext());
                             }
-
                         } else {
                             controller.toast("Transaction Failed ", getContext(), R.drawable.ic_error_outline_black_24dp);
                         }
-                         //}
-
-
                     } else {
                        // vi.vibrate(200);
                         controller.toast("Invalid",getActivity(),R.drawable.navicon);
                     }
-
                 } else {
                    // vi.vibrate(200);
                    controller.toast("Invalid",getActivity(),R.drawable.navicon);
                 }
             }
         });
-
-
         dialog.show();
-
     }
 
+    public void viewPdf(File myFile) {
+        // dialog.dismiss();
+        try {
+            progressDialog.dismiss();
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(Uri.fromFile(myFile), "application/pdf");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            startActivity(intent);
+        } catch (Exception nm) {
+            Toast.makeText(getContext(), "You dont have any pdf viewer", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void shareReciept(File f) {
+        try {
+            dialog.dismiss();
+            progressDialog.dismiss();
+            Uri uri = Uri.fromFile(f);
+            Intent share = new Intent();
+            share.setAction(Intent.ACTION_SEND);
+            share.setType("application/pdf");
+            share.putExtra(Intent.EXTRA_STREAM, uri);
+
+            getContext().startActivity(share);
+        } catch (Exception nm) {
+
+        }
+    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -346,5 +380,55 @@ public class Cartfragment extends Fragment {
             Toast.makeText(getActivity(), "Error:"+ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public class Receiptgenerator extends AsyncTask<String, Void, File>{
+
+        private int wht;
+        private ArrayList<CartModel> cartitems;
+        private double itemsInCart;
+        private double paidAmount;
+        private String shopDetails;
+        private String serverName;
+        private String recNo;
+
+        public Receiptgenerator(int wht, ArrayList<CartModel> cartitems, double itemsInCart, double paidAmount, String shopDetails, String serverName, String recNo) {
+            this.wht = wht;
+            this.cartitems = cartitems;
+            this.itemsInCart = itemsInCart;
+            this.paidAmount = paidAmount;
+            this.shopDetails = shopDetails;
+            this.serverName = serverName;
+            this.recNo = recNo;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected void onPostExecute(File file) {
+            super.onPostExecute(file);
+            if (wht == 0){
+                shareReciept(file);
+            }else if (wht == 1){
+                viewPdf(file);
+            }
+        }
+
+        @Override
+        protected File doInBackground(String... params) {
+            Receipt r = new Receipt(getContext());
+            File myFilea = null;
+            try {
+                myFilea = r.re(cartitems,itemsInCart,paidAmount,shopDetails,serverName,recNo);
+            } catch (DocumentException e){
+                e.printStackTrace();
+            }catch (FileNotFoundException e){
+                e.printStackTrace();
+            }
+            return myFilea;
+        }
     }
 }

@@ -43,7 +43,9 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/navicon"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.devsawe.duka.Activities.TransactionDetails" />
         <activity android:name="com.example.devsawe.duka.Activities.HorizontalCalendar" />
         <activity
             android:name="com.example.devsawe.duka.Activities.MainActivity"
